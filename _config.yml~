@@ -1,0 +1,23 @@
+title: "Advanced Quantum Mechanics"
+author: "Daniel Wysocki"
+description: "Course page for Advanced Quantum Mechanics (PHY437)"
+url: "http://dwysocki.github.io"
+baseurl: "/phy437"
+
+style:
+#    body: "whitesmoke"
+    padding: 33%
+    anchor: "#46f"
+    serif-heading: true
+    nav: "#181818"
+#    headline: "#06f"
+    description: "white"
+    article:
+        odd: "#ffffff"
+        even: "#222222"
+
+links:
+  - github: "https://github.com/dwysocki/"
+
+excerpt_separator: "\n\n\n"
+defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]

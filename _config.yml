@@ -1,0 +1,21 @@
+title: "Advanced Quantum Mechanics"
+author: "SUNY Oswego Physics"
+description: "Course page for Advanced Quantum Mechanics (PHY437), Spring 2015"
+url: "http://oswego-physics.github.io"
+baseurl: "/phy437-spring2015"
+
+style:
+    padding: 33%
+    anchor: "#46f"
+    serif-heading: true
+    nav: "#181818"
+    description: "white"
+    article:
+        odd: "#ffffff"
+        even: "#222222"
+
+links:
+  - github: "https://github.com/oswego-physics/"
+
+excerpt_separator: "\n\n\n"
+defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
