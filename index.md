@@ -21,7 +21,7 @@ Nicholas Jira
 
 # Presentations in Chronological Order
 
-**January 29**
+## January 29
 
 - Thornton and Rex, Chapter 5 -- Daniel Wysocki and Kenny Roffo
     - [download]({{site.baseurl}}/assets/presentations/threx_ch5/threx_ch5.pdf)
@@ -30,7 +30,7 @@ Nicholas Jira
 
 
 
-**February 12**
+## February 12
 
 - Griffiths, Chapter 2.1, 2.2, and 2.3 -- Dylan McIntyre and Nicholas Jira
     - **!!missing!!**
@@ -39,7 +39,7 @@ Nicholas Jira
 
 
 
-**February 19**
+## February 19
 
 - Griffiths, Chapter 3.1 and 3.2 -- Daniel Wysocki and Kenny Roffo
     - [download]({{site.baseurl}}/assets/presentations/griffiths_ch3/griffiths_ch3.pdf)
@@ -48,7 +48,7 @@ Nicholas Jira
 
 
 
-**February 26**
+## February 26
 
 - Griffiths, Chapter 2.3, The Harmonic Oscillator -- Daniel Wysocki and Kenny Roffo
     - [download]({{site.baseurl}}/assets/presentations/griffiths_qho/griffiths_qho.pdf)
@@ -57,7 +57,7 @@ Nicholas Jira
 
 
 
-**March 5**
+## March 5
 
 - Griffiths, Chapter 3.5, Uncertainty Principle -- Daniel Wysocki and Kenny Roffo
     - [download]({{site.baseurl}}/assets/presentations/griffiths_up/griffiths_up.pdf)
@@ -66,7 +66,7 @@ Nicholas Jira
 
 
 
-**March 26**
+## March 26
 
 - Griffiths, Chapter 4.1 -- Dylan McIntyre and Nicholas Jira
     - [download]({{site.baseurl}}/assets/presentations/chpt_4_presentation.pdf)
@@ -75,7 +75,7 @@ Nicholas Jira
 
 
 
-**April 2**
+## April 2
 
 - Griffiths, Chapter 4.3, Angular Momentum -- Daniel Wysocki and Nicholas Jira
     - [download]({{site.baseurl}}/assets/presentations/griffiths_angular_momentum/griffiths_angular_momentum.pdf)
@@ -84,7 +84,7 @@ Nicholas Jira
 
 
 
-**April 23**
+## April 23
 
 
 - Griffiths, Chapter 5.1, Two-Particle Systems -- Dylan McIntyre and Kenny Roffo
@@ -95,7 +95,7 @@ Nicholas Jira
 
 
 
-**April 30**
+## April 30
 
 - Griffiths, Chapter 5.3, Solids -- Daniel Wysocki and Dylan McIntyre
     - [download]({{site.baseurl}}/assets/presentations/griffiths_solids/griffiths_solids.pdf)
