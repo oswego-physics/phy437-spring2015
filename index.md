@@ -4,16 +4,22 @@ layout: blank
 
 Presentations from Advanced Quantum Mechanics (PHY437), Spring 2015.
 
-Instructor: Dr Shashi Kanbur
+# Instructor
 
-Students:
+Dr Shashi Kanbur
 
-- Daniel Wysocki
-- Dylan McIntyre
-- Kenny Roffo
-- Nicholas Jira
+# Students
+
+Daniel Wysocki
+
+Dylan McIntyre
+
+Kenny Roffo
+
+Nicholas Jira
 
 
+# Presentations in Chronological Order
 
 **January 29**
 
