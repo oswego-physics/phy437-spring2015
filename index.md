@@ -33,7 +33,7 @@ Nicholas Jira
 
 ## February 12
 
-[Griffiths, Chapter 2.1, 2.2, and 2.3 -- Dylan McIntyre and Nicholas Jira]()
+[Griffiths, Chapter 2.1, 2.2, and 2.3 -- Dylan McIntyre and Nicholas Jira]({{site.baseurl}}/assets/presentations/Chapter_2_slides.pptx)
 
 [Griffiths, Chapter 2.4, 2.5, and 2.6 -- Daniel Wysocki and Kenny Roffo]({{site.baseurl}}/assets/presentations/griffiths_ch2/griffiths_ch2.pdf)
 
@@ -75,7 +75,7 @@ Nicholas Jira
 
 [Griffiths, Chapter 4.3, Angular Momentum -- Daniel Wysocki and Nicholas Jira]({{site.baseurl}}/assets/presentations/griffiths_angular_momentum/griffiths_angular_momentum.pdf)
 
-[Griffiths, Chapter 4.4, Spin -- Dylan McIntyre and Kenny Roffo]()
+[Griffiths, Chapter 4.4, Spin -- Dylan McIntyre and Kenny Roffo]({{site.baseurl}}/assets/presentations/griffiths_spin.pdf)
 
 
 
