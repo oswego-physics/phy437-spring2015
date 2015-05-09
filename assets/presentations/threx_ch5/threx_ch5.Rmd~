@@ -1,0 +1,454 @@
+---
+author: "Daniel Wysocki and Kenny Roffo"
+title: "Thornton & Rex -- Chapter 5"
+date: "January 29, 2015"
+output:
+  beamer_presentation:
+    toc: true
+    incremental: true
+    theme: "Madrid"
+    colortheme: "dolphin"
+    fonttheme: "serif"
+    includes:
+      in_header: [header.tex, notation.tex]
+---
+
+# X-Ray Scattering
+
+## History
+
+- X-Rays discovered by Wilhelm Röntgen in 1895
+
+    - Awarded the first Nobel Prize for Physics in 1901 for his discovery
+
+- Thought to be EM radiation, but difficult to refract and diffract
+
+    - Shorter wavelengths?
+
+- X-Rays proven to be EM radiation by Max von Laue
+
+
+## Laue Experiment
+
+- Wave properties most easily demonstrated with aperture or obstruction equal
+  or smaller than the wavelength
+
+- X-Ray wavelength estimated to be on the order of $10^{-10}$ to $10^{-11}$
+  meters
+
+- von Laue suggested using crystals, due to their tight lattice spacing
+
+- Demonstrated both the wave nature of X-Rays and the lattice structure of
+  crystals
+
+- Won the Nobel Prize for Physics in 1914
+
+
+---
+
+![](img/fig5_1_a)
+
+---
+
+![](img/fig5_1_b)
+
+
+## Bragg Experiment
+
+- William Henry Bragg and his son, William Lawrence Bragg built on Laue's
+  experiment
+
+- The images surrounding the center could be interpreted as the reflection
+  of the X-Ray beam on a unique set of lattice planes
+
+    - Each image corresponds to a different set of planes
+
+- They determined Bragg's law, which can be used to determine both wavelength
+  and lattice spacing
+
+\begin{displaymath}
+\only<4->{
+  n \lambda = 2 d \sin\theta
+}
+\end{displaymath}
+
+
+# De Broglie Waves
+
+
+## History
+
+- The Bohr model needed to be replaced by a more general one
+
+- Theorized by French graduate student, Prince Louis V. de Broglie
+
+- Presented in his doctoral thesis to the University of Paris in 1924
+
+- Awarded Nobel Prize for Physics in 1929
+
+
+## Theory
+
+- If light can behave as a particle and a wave, then why not matter particles?
+
+- The wavelength of a material particle, when converted into a photon of equal
+  energy and momentum, will have a wavelength given by:
+
+\begin{displaymath}
+\only<2-> {
+  \lambda = \frac{h}{p}
+}
+\end{displaymath}
+
+
+## Agreement with Bohr Model
+
+- Imagine the electron in a Hydrogen atom as a standing wave orbiting the
+  proton
+
+\begin{displaymath}
+  n \lambda = 2\pi r
+\end{displaymath}
+
+- Substitute de Broglie relation for wavelength
+
+\begin{displaymath}
+\only<2->{
+  n \frac{h}{p} = 2\pi r
+}
+\end{displaymath}
+
+- Angular momentum given by $L = rp$
+
+\begin{displaymath}
+\only<3->{
+  L = rp = \frac{n h}{2 \pi} = n \hbar
+}
+\end{displaymath}
+
+
+# Electron Scattering
+
+## History
+
+- In 1925 C. Davison and L. H. Germer had a lab accident which led to
+  experimental proof for the de Broglie wavelength hypothesis.
+
+- Davison and Germer were awarded the Nobel Prize for Physics in 1937 for their
+  discovery.
+
+## Experiment
+
+- Davison and Germer were experimenting with electron scattering from various
+  metals in the lab.
+
+- A bottle exploded, causing air to rush into a vacuum and thus quickly oxidize
+  an expensive nickel target.
+
+- They tried to deoxidize the nickel by raising its temperature very high while
+  in hydrogen or in a vacuum.
+
+- They continued the experiment after deoxidization and found significantly
+  different results. It appeared as though the structure of the crystals that
+  made up the material had changed.
+
+- It seemed that the electrons acted like x rays as they diffracted in a new
+  pattern based on the changed interatomic spacing within the material.
+
+# Wave Motion
+
+
+## History
+
+- As the discoveries of de Broglie rocked the world of physics, new ways of
+  looking at the world developed.
+
+- One of these ways included looking at waves as a representation of matter
+
+## Theory
+
+- Since matter can behave like a wave, it is possible to represent matter by a
+  wave function.
+
+- In their simplest form, these waves can be described by the equation
+
+\begin{displaymath}
+\only<2->{
+\Psi (x,t) = A \sin (kx - \omega t + \phi)
+}
+\end{displaymath}
+
+## Principle of Superposition
+
+- When two or more waves traverse the same region, they act independently, and
+  the sum of individual displacements gives the total displacement
+
+- Multiple waves can interfere constructively or destructively
+
+- The superposition of $n$ sine waves is given by the Fourier series:
+
+\begin{displaymath}
+\only<3->{
+\Psi(x, t) = \sum_{j=1}^n A_j \sin(k_j x - \omega_j t) \diff k
+}
+\end{displaymath}
+
+- For a continuous spectrum, the series is extended to a Fourier integral
+
+\begin{displaymath}
+\only<4->{
+\Psi(x, t) = \int \tilde{A}(k) \cos(k x - \omega t)
+}
+\end{displaymath}
+
+## Wave Packets
+
+- A large set of sinusoids with different wavenumbers $k$ may interfere such
+  that the amplitude of their superposition is close to zero except for a
+  localized region $\Delta x$
+
+- In order to shrink the region $\Delta x$, the range of wavenumbers $\Delta k$
+  must be correspondingly large
+
+- This is related to the uncertainty principle
+
+## Wave Equation
+
+- In general, the equation of a wave is given by
+
+\begin{displaymath}
+  \frac{1}{v^2} \parfrac{^2}{t^2} \Psi = \nabla^2 \Psi
+\end{displaymath}
+
+- In one dimension, this is simplified to
+
+\begin{displaymath}
+\only<2->{
+  \frac{1}{v^2} \parfrac{^2}{t^2} \Psi(x, t) = \parfrac{^2}{x^2} \Psi(x, t)
+}
+\end{displaymath}
+
+## Derivation of Wave Equation in 1D
+
+- Imagine an array of masses $m$ separated by displacement $h$ by springs with
+  spring constant $k$
+
+- $\Psi(x)$ represents the displacement from equilibrium of the mass at $x$
+
+![](img/wave-equation-hooke-derivation)
+
+## Derivation of Wave Equation in 1D (cont)
+
+\begin{gather*}
+F_{x+h} = m a = m \cdot \parfrac{^2}{t^2} \Psi(x+h)
+\\ \only<2->{
+F_{x+h} = F_{x+2h} - F_x =
+k \left\{
+  \left[ \Psi(x + 2h) - \Psi(x + h) \right]
+- \left[ \Psi(x + h)  - \Psi(x)     \right]
+\right\}
+}
+\\ \only<3->{
+m \cdot \parfrac{^2}{t^2} \Psi(x+h) =
+k \left\{
+  \left[ \Psi(x + 2h) - \Psi(x + h) \right]
+- \left[ \Psi(x + h)  - \Psi(x)     \right]
+\right\}
+}
+\\ \only<4->{
+m \cdot \parfrac{^2}{t^2} \Psi(x+h) =
+k \left[ \Psi(x + 2h) - 2 \Psi(x + h) + \Psi(x) \right]
+}
+\end{gather*}
+
+## Derivation of Wave Equation in 1D (cont)
+
+- $N$ weights
+
+- Total length: $L = Nh$
+
+- Total mass: $M = Nm$
+
+- Total spring constant: $K = \frac{k}{N}$
+
+## Derivation of Wave Equation in 1D (cont)
+
+\begin{displaymath}
+\parfrac{^2}{t^2} \Psi(x+h) =
+\frac{K L^2}{M}
+\frac{\left[ \Psi(x + 2h) - 2 \Psi(x + h) + \Psi(x) \right]}{h^2}
+\end{displaymath}
+
+\pause
+- Take the limit as $N \to \infty$ and $h \to 0$
+
+\begin{displaymath}
+\only<2->{
+\parfrac{^2}{t^2} \Psi(x, t) = \frac{K L^2}{M} \parfrac{^2}{x^2} \Psi(x, t)
+}
+\end{displaymath}
+
+\pause
+- $K L^2 / M$ is the square of phase velocity, $v$
+
+\begin{displaymath}
+\only<3->{
+\parfrac{^2}{x^2} \Psi(x, t) = \frac{1}{v^2} \parfrac{^2}{t^2} \Psi(x, t)
+}
+\end{displaymath}
+
+
+# Waves or Particles
+
+## Double-Slit Experiment with Light
+
+- Apparatus consists of a wall with two small slits, a screen behind it, and a
+  low-power laser
+
+- Laser is directed at the two slits
+
+- If one slit is covered, a single, broad peak is observed on the screen
+
+- If both slits are uncovered, an interference pattern is observed
+
+- This demonstrates the wave-nature of light
+
+---
+
+![](img/fig5_18_a)
+
+---
+
+![](img/fig5_18_b)
+
+
+## Particle Nature of Light
+
+- If the intensity of the light is reduced, we observe discrete flashes of
+  light on the screen
+
+- Over time, the sum of these flashes recreates the interference pattern
+
+---
+
+\begin{figure}
+  \includegraphics[width=0.9\textwidth]{img/fig5_19}
+\end{figure}
+
+## Particle Nature of Electrons
+
+- Electron de Broglie wavelengths are much shorter than that of light
+
+    - Electrons with $E = 50$keV have $\lambda = 5 \times 10^{-3}$nm
+
+    - Compare to the size of hydrogen atom ($~0.1$nm)
+
+- Slit size must be correspondingly small
+
+- C. Jönsson demonstrated this with very small slits and large distance to
+  observation screen
+
+- The same nature was observed for electrons as was observed for light
+
+
+
+# Uncertainty Principle
+
+## Theory
+
+- In the case of a Gaussian wave packet
+
+\begin{displaymath}
+\Delta k \Delta x = \frac{\Delta p}{\hbar} \Delta x = \frac{1}{2}
+\implies
+\Delta p \Delta x = \frac{\hbar}{2}
+\end{displaymath}
+
+- The Heisenberg uncertainty principle states
+
+\begin{displaymath}
+\only<2->{
+\Delta p_x \Delta x \geq \frac{\hbar}{2}
+}
+\end{displaymath}
+
+- Time-energy form
+
+\begin{displaymath}
+\only<3->{
+\Delta E \Delta t \geq \frac{\hbar}{2}
+}
+\end{displaymath}
+
+# Probability, Wave Functions, and the Copenhagen Interpretation
+
+## Wave Function
+
+- The wave function $\Psi(x, t)$ describes the superposition of waves which
+  comprise the wave packet
+
+- In electrodynamics, $\mathbf{E}$ or $\mathbf{B}$ serves as the wave function
+
+- For matter waves, $\Psi$ determines the probability of finding a particle
+  at a particular location in space at a time $t$
+
+## Probability Density
+
+- The quantity $|\Psi|^2$ is called the probability density
+
+- Represents the probability of finding the particle in a given volume at a
+  time $t$
+
+- If $\Psi$ is complex, $\Psi^* \Psi$ is used when finding probabilities
+
+- When only interested in a single dimension $y$ at a given time $t$,
+  $P(y) = \Psi^* \Psi = |\Psi|^2$ is the probability of observing a particle
+  in the interval between $y$ and $y + \diff y$
+
+## Normalization
+
+- The probability of finding a particle *somewhere* must be unity, and so the
+  probability density is integrated over all space
+
+\begin{displaymath}
+\int_{-\infty}^\infty P(y) \diff y =
+\int_{-\infty}^\infty |\Psi(y, t)|^2 \diff y = 1
+\end{displaymath}
+
+## Copenhagen Interpretation
+
+- Assumes that the wavefunction is real
+
+- When a particle is observed, one of the many possible states described by the
+  wavefunction is chosen at random
+
+- Before that observation, nothing could be said about the location of the
+  particle beyond the wavefunction
+
+- Initially met with much resistance from physicists, but now the most widely
+  accepted interpretation
+
+    - Einstein stated "God does not throw dice" in defiance of the
+      interpretation
+
+# Particle in a Box
+
+## Theory
+
+- A particle's position in a box can be represented by a wave function
+  describing the probability of finding the particle at a certain location
+
+- This probability must fall to zero at either end, so only integer multiples
+  of half wavelengths will fit into the box
+
+- The length of the box can be $\ell$ as defined by
+
+\begin{displaymath}
+\only<3->{
+\ell = \frac{n \lambda}{2}
+\text{, for } n = 1, 2, 3, \ldots
+}
+\end{displaymath}
+
+- The possible values of $\lambda$ are quantized as a result, giving discrete
+  energy levels of the particle. This explains the Bohr model

@@ -1,0 +1,343 @@
+---
+title: Solids
+date: April 30, 2015
+output:
+  beamer_presentation:
+    theme: CambridgeUS
+    colortheme: dolphin
+    fonttheme: serif
+    includes:
+      in_header: [header.tex]
+---
+
+# Introduction
+
+## Solid State
+
+- some loosely bound, outermost valence electrons from each atom detached
+- not subject to Coulomb field of a specific nucleus
+    - subject to potential of entire crystal lattice
+
+
+## Primitive Models
+
+1. electron gas theory of Sommerfeld
+    - ignores all forces except confining boundaries
+    - treats wandering electrons as free particles in a box
+      ($\infty$ cube well)
+\pause
+2. Bloch's theory
+    - periodic potential representing electrical attraction of regularly spaced
+      nucleii
+    - ignores electron-electron repulsion
+
+
+# The Free Electron Gas
+
+## Schrödinger Equation
+
+- rectangular solid with dimensions $\ell_x$, $\ell_y$, $\ell_z$
+$$
+V(x, y, z) =
+\begin{dcases*}
+0, & if $0 < x < \ell_x$, $0 < y < \ell_y$, and $0 < z < \ell_z$
+\\
+\infty, & otherwise
+\end{dcases*}
+$$
+$$-\frac{\hbar^2}{2 m} \laplacian \psi = E \psi$$
+$$\psi(x, y, z) = X(x) Y(y) Z(z)$$
+
+
+## Schrödinger Equation (cont.)
+
+$$
+k_x \equiv \frac{\sqrt{2 m E_x}}{\hbar},
+k_y \equiv \frac{\sqrt{2 m E_y}}{\hbar},
+k_z \equiv \frac{\sqrt{2 m E_z}}{\hbar},
+$$
+General solutions
+$$X(x) = A_x \sin(k_x x) + B_x \cos(k_x x);\ Y(y) = \ldots;\ Z(z) = \ldots$$
+
+
+## Schrödinger Equation (cont.)
+
+Boundary conditions require
+$$X(0) = Y(0) = Z(0) = 0$$
+so
+$$B_x = B_y = B_z = 0$$
+and
+$$X(\ell_x) = Y(\ell_y) = Z(\ell_z)$$
+meaning
+$$
+k_x \ell_x = n_x \pi; \quad
+k_y \ell_y = n_y \pi; \quad
+k_z \ell_z = n_z \pi
+$$
+
+
+## Schrödinger Equation (cont.)
+
+\begin{gather*}
+\psi_{n_x n_y n_z} =
+\sqrt{\frac{8}{\ell_x \ell_y \ell_z}}
+\sin(\frac{n_x \pi}{\ell_x} x)
+\sin(\frac{n_y \pi}{\ell_y} y)
+\sin(\frac{n_z \pi}{\ell_z} z)
+\\
+E_{n_x n_y n_z} =
+\frac{\hbar^2 \pi^2}{2 m}
+\qty(
+  \frac{n_x^2}{\ell_x^2} + \frac{n_y^2}{\ell_y^2} + \frac{n_z^2}{\ell_z^2}
+) =
+\frac{\hbar^2 k^2}{2 m}
+\\
+k = \norm{\vb{k}}
+\\
+\vb{k} = (k_x, k_y, k_z)
+\end{gather*}
+
+
+## $k$-space
+
+- 3D space with axes $k_x$, $k_y$, and $k_z$
+- planes drawn at $k_x = (\pi/\ell_x), (2\pi/\ell_x), \ldots$,
+  $k_y = \ldots$, $k_z = \ldots$
+- each intersection represents a distinct (one-particle) stationary state
+- each block occupies a volume in ($k$-space) of
+$$
+k_x k_y k_z =
+\frac{\pi^3}{\ell_x \ell_y \ell_z} =
+\frac{\pi^3}{V_{\rm object}}$$
+- each block contains two electrons ($\uparrow\downarrow$)
+
+## $k$-space
+
+- all free electrons fill 1 octant of sphere in $k$-space, centered at origin
+    - sphere has radius $k_F$
+\begin{gather*}
+V_{\rm octant} =
+\frac{1}{8} \qty( \frac{4}{3} \pi k_F^3 ) =
+\frac{N q}{2} \qty( \frac{\pi^3}{V_{\rm object}} )
+\\
+k_F = (3 \rho \pi^2)^{1/3}
+\\
+\rho \equiv \frac{N q}{V_{\rm object}}
+\end{gather*}
+
+
+## Fermi surface
+
+- boundary separating occupied and unoccupied states in $k$-space
+- corresponding energy is Fermi energy, $E_F$
+$$
+E_F =
+\frac{\hbar^2}{2 m} k_F^2 =
+\frac{\hbar^2}{2 m} (3 \rho \pi^2)^{2/3}
+$$
+
+
+## Total Energy
+
+- a shell of thickness $\dd k$ has volume
+$$\frac{1}{8} (4 \pi k^2) \dd k$$
+- number of electron states in shell
+$$\frac{2 [(1/2) \pi k^2 \dd k]}{\pi^3 / V} = \frac{V}{\pi^2} k^2 \dd k$$
+- each carries energy $\hbar^2 k^2 / 2m$, so energy of shell is
+$$\dd E = \frac{\hbar^2 k^2}{2 m} \frac{V}{\pi^2} k^2 \dd k$$
+
+
+## Total Energy (cont.)
+
+\begin{align*}
+E_{\rm tot} &=
+\int_0^{k_F} \dd E =
+\frac{\hbar^2 V}{2 \pi^2 m} \int_0^{k_f} k^4 \dd k
+\\ &=
+\frac{\hbar^2 k_F^5 V}{10 \pi^2 m} =
+\frac{\hbar^2 (3 \pi^2 N q)^{5/3}}{10 \pi^2 m} V^{-2/3}
+\end{align*}
+
+- total energy is inversely proportional to total volume
+
+
+## Degeneracy pressure
+
+- if the box expands by $\dd V$, the total energy decreases
+$$
+\dd E_{\rm tot} =
+-\frac{2}{3} \frac{\hbar^2 (3 \pi^2 N q)^{5/3}}{10 \pi^2 m} V^{-5/3} \dd V =
+-\frac{2}{3} E_{\rm tot} \frac{\dd V}{V}
+$$
+- shows up as work done on outside ($\dd W = P \dd V$) by quantum pressure $P$
+$$
+P =
+\frac{2}{3} \frac{E_{\rm tot}}{V} =
+\frac{2}{3} \frac{\hbar^2 k_F^5}{10 \pi^2 m} =
+\frac{(3 \pi^2)^{2/3} \hbar^2}{5 m} \rho^{5/3}
+$$
+- stabilizing internal pressure, independent of $e$-$e$ & thermal repulsion
+
+
+# Band Structure
+
+## Introduction
+
+- we improve on the free electron model by including forces exerted by
+  nucleii
+    - regularly spaced
+    - positively charged
+    - stationary
+
+
+## Dirac Comb
+
+- model the potential by a 1D Dirac comb
+    - evenly spaced delta function spikes
+- periodic in $x$ at intervals of $a$
+$$V(x + a) = V(x)$$
+
+
+## Bloch's Theorem
+
+the solutions to the Schrödinger equation
+$$-\frac{\hbar^2}{2 m} \dv[2]{\psi}{x} + V(x) \psi = E \psi$$
+can be taken to satisfy the condition
+$$\psi(x + a) = e^{\imath K a} \psi(x)$$
+for some constant $K$ (independent of $x$ but not necessarily $E$)
+
+
+## Displacement Operator
+
+$$D f(x) = f(x + a)$$
+
+- for a periodic potential, $D$ commutes with the Hamiltonian
+$$\comm{D}{H} = 0$$
+- free to choose eigenfunctions of $H$ that are eigenfunctions of $D$
+$$D \psi = \lambda \psi \implies \psi(x + a) = \lambda \psi(x)$$
+
+
+## Wave Function
+
+- considering the loop model, $0 < x < a$ yields the wave function:
+$$\psi(x) = A \sin(k x) + B \cos(k x), \quad (0 < x < a)$$
+- Bloch's theorem allows us to write for final cell:
+$$
+\psi(x) = e^{-\imath K a} \qty[ A \sin k (x + a) + B \cos k (x + a) ], \quad
+(-a < x < 0)
+$$
+
+
+## Wave Function (cont.)
+
+- from boundary conditions:
+$$B = e^{-\imath K a} \qty[ A \sin(k a) + B \cos(k a) ],$$
+whose derivative is discontinuous proportional to magnitude of $\delta$ fn
+- solving for $A \sin(k a)$ gives
+$$A \sin(k a) = \qty[ e^{\imath K a} - \cos(k a) ] B$$
+
+
+## Wave Function (cont.)
+
+- derivative of the wave function is given by
+$$\Delta \qty( \dv{\psi}{x} ) = -\frac{2 m \alpha}{\hbar^2} \psi(0)$$
+- plugging into $B$ given by boundary conditions:
+$$
+k A - e^{-\imath K a} k \qty[ A \cos(k a) - B \sin(k a) ] =
+\frac{2 m \alpha}{\hbar^2} B
+$$
+
+
+## Wave Function (cont.)
+
+- plugging into $A \sin(k a)$ gives
+$$
+\qty[ e^{\imath K a} - \cos(k a) ]
+\qty[ 1 - e^{-\imath K a} \cos(k a) ] +
+e^{-\imath K a} \sin[2](k a) =
+\frac{2 m \alpha}{\hbar k} \sin(k a)
+$$
+- simplifies to
+$$
+\cos(K a) = \cos(k a) + \frac{m \alpha}{\hbar^2 k} \sin(k a)
+$$
+
+
+## Discrete Energy States
+
+$$
+\cos(K a) = \cos(k a) + \frac{m \alpha}{\hbar^2 k} \sin(k a)
+$$
+
+- allows us to find the possible values of $k$ and allowed energies
+- we define this dimensionless notation:
+$$z \equiv k a, \quad \beta \equiv \frac{m \alpha a}{\hbar^2}$$
+- and rewrite the top as
+$$f(z) \equiv \cos(z) + \beta \frac{\sin(z)}{z}$$
+- $\beta$ is the "strength" of the delta function
+
+
+## Forbidden Energies
+
+- plot $f(z)$ using $\beta = 10$
+
+\begin{figure}
+\centering
+\includegraphics[height=0.5\textheight]{img/fzgraph}
+\end{figure}
+
+
+## Forbidden Energy Considerations
+
+- $f(z)$ exists outside the range $(-1, +1)$
+- unsolvable in these regions
+    - $\cos(K a)$ is confined between $(-1, +1)$
+- gives rise to forbidden energy regions
+    - energy gaps
+- gaps are separated by allowed regions
+    - bands
+- practically any energy allowed within given band ($K a = 2 \pi n / N$)
+
+
+## Energy Bands
+
+- draw $N$ horizontal lines on previous graph at values of $\cos(2 \pi n / N)$
+- intersection points represent energy levels within each band
+
+\begin{figure}
+\centering
+\includegraphics[height=0.5\textheight]{img/bands}
+\end{figure}
+
+
+## Multielectron Systems
+
+- we have only considered one electron in the potential
+- in reality there are $Nq$ electrons
+- Pauli exclusion principle dictates at most 2 electrons may occupy one state
+- with $N$ states, we have the following possibilities
+    - $q = 1$ $\implies$ first band half filled
+    - $q = 2$ $\implies$ first band completely filled
+    - $q = 3$ $\implies$ second band half filled
+    - etc.
+
+
+## System Classifications
+
+- entirely filled band requires relatively large energy to excite electron
+    - electrical **insulators**
+- partly filled band requires very small energy to excite electron
+    - electrical **conductors**
+
+
+## Doped Insulators
+
+- we dope an insulator with some atoms of a different $q$
+- two cases arise:
+    1. $q_2 > q_1$ $\implies$ obtain extra electrons in next higher band
+    2. $q_2 < q_1$ $\implies$ create holes in previously filled band
+- in both cases, small electric currents may flow
+    - **semiconductors**
+
+
+## Thank You

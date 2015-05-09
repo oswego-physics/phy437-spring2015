@@ -1,0 +1,426 @@
+---
+author: Daniel Wysocki and Nicholas Jira
+title: Angular Momentum
+date: April 2, 2015
+output:
+  beamer_presentation:
+    theme: CambridgeUS
+    colortheme: dolphin
+    fonttheme: serif
+    includes:
+      in_header: [header.tex]
+---
+
+# Introduction
+
+## Quantum Numbers
+
+- the stationary states of the hydrogen atom are given by three numbers,
+  $n$, $\ell$, and $m$
+- $n$ is the principal quantum number, and determines the energy of the state
+- $\ell$ and $m$ are related to the orbital angular momentum
+
+## Angular Momentum
+
+- classically, a particle's angular momentum is given by
+$$
+\vb{L} =
+\vb{r} \cross \vb{p} =
+\begin{bmatrix}
+  y p_z - z p_y
+  \\
+  z p_x - x p_z
+  \\
+  x p_y - y p_x
+\end{bmatrix}
+$$
+- now we simply replace classical momentum with the quantum momentum operator
+$$
+\vb{L} =
+\frac{\imath}{\hbar}
+\begin{bmatrix}
+  y \pdv*{z} - z \pdv*{y}
+  \\
+  z \pdv*{x} - x \pdv*{z}
+  \\
+  x \pdv*{y} - y \pdv*{x}
+\end{bmatrix} =
+\frac{\imath}{\hbar} \qty( \vb{r} \cross \grad )
+$$
+
+
+# Eigenvalues
+
+## Fundamental Commutation Relations
+
+- $L_x$ and $L_y$ do not commute
+\begin{align*}
+\comm{L_x}{L_y} &=
+\comm{y p_z - z p_y}{z p_x - x p_z}
+\\ &=
+\comm{y p_z}{z p_x} - \comm{y p_z}{x p_z} -
+\comm{z p_y}{z p_x} + \comm{z p_y}{x p_z}
+\end{align*}
+- the only terms which fail to commute are
+  $\comm{x}{p_x}$, $\comm{y}{p_y}$, and $\comm{z}{p_z}$
+$$
+\comm{L_x}{L_y} =
+y p_x \comm{p_z}{z} + x p_y \comm{z}{p_z} =
+\imath \hbar \qty( x p_y - y p_x ) =
+\imath \hbar L_z
+$$
+$$
+\comm{L_x}{L_y} = \imath \hbar L_z;
+\quad
+\comm{L_y}{L_z} = \imath \hbar L_x;
+\quad
+\comm{L_z}{L_x} = \imath \hbar L_y
+$$
+
+## Uncertainty Principle
+
+$$
+\sigma_A^2 \sigma_B^2 \geq
+\qty( \frac{1}{2 \imath} \expval{\comm{A}{B}} )^2
+$$
+$$
+\sigma_{L_x}^2 \sigma_{L_y}^2 \geq
+\qty( \frac{1}{2 \imath} \expval{\imath \hbar L_z} )^2 =
+\frac{\hbar^2}{4} \expval{L_z}^2
+$$
+$$\sigma_{L_x} \sigma_{L_z} \geq \frac{\hbar}{2} \abs{\expval{L_z}}$$
+
+## Total Angular Momentum
+
+- since $L_x$ and $L_y$ do not commute, there are no eigenfunctions of *both*
+  $L_x$ and $L_y$
+- however, the square of the total angular momentum does commute with $L_x$
+$$L^2 = \vb{L} \cdot \vb{L} = L_x^2 + L_y^2 + L_z^2$$
+$$
+\comm*{L^2}{L_x} = 0;
+\quad
+\comm*{L^2}{L_y} = 0;
+\quad
+\comm*{L^2}{L_z} = 0
+$$
+or
+$$\comm*{L^2}{\vb{L}} = \vb{0}$$
+
+## Ladder Operator
+
+- since $L^2$ is compatible with each component of $\vb{L}$, we can hope to
+  find simultaneous eigenstates of $L^2$ and any given component, say $L_z$
+$$L^2 f = \lambda f \quad \text{and} \quad L_z f = \mu f$$
+- we define the ladder operator
+$$L_\pm \equiv L_x \pm \imath L_y$$
+$$
+\comm{L_z}{L_\pm} =
+\comm{L_z}{L_x} \pm \imath \comm{L_z}{L_y} =
+\imath \hbar L_y \pm \imath \qty(-\imath \hbar L_x) =
+\pm \hbar \qty(L_x \pm \imath L_y)
+$$
+$$
+\comm{L_z}{L_\pm} = \pm \hbar L_\pm
+\quad \text{and} \quad
+\comm*{L^2}{L_\pm} = 0
+$$
+
+## Ladder Operator and Eigenfunctions
+
+- if $f$ is an eigenfunction of $L^2$ and $L_z$, so too is $L_\pm f$
+- since $L^2$ and $L_\pm$ commute,
+$$L^2 (L_\pm f) = L_\pm (L^2 f) = L_\pm (\lambda f) = \lambda (L_\pm f)$$
+- $L_\pm f$ is an eigenfunction of $L^2$ with eigenvalue $\lambda$
+- since $\comm{L_z}{L_\pm} = \pm \hbar L_\pm$,
+\begin{align*}
+L_z (L_\pm f) &=
+(L_z L_\pm - L_\pm L_z) f + L_\pm L_z f = \pm \hbar L_\pm f + L_\pm (\mu f)
+\\ &=
+(\mu \pm \hbar) (L_\pm f)
+\end{align*}
+- so $L_\pm f$ is an eigenfunction of $L_z$ with eigenvalue $\mu\pm\hbar$
+
+## Raising and Lowering Operators
+
+- $L_\pm f$ is an eigenfunction of $L_z$ with eigenvalue $\mu\pm\hbar$
+- $L_+$ is the "raising" operator, since it increases the eigenvalue of $L_z$
+  by $\hbar$
+- $L_+$ is the "lowering" operator, since it decreases the eigenvalue of $L_z$
+  by $\hbar$
+- for a given $\lambda$, we obtain a "ladder" of states, with each "rung"
+  separated from its neighbors by $\hbar$ in the eigenvalue of $L_z$
+
+## Top Rung
+
+- if we allowed the raising operator to be applied forever, eventually we would
+  reach a point where $L_z > L^2$, which cannot be
+- there must exist a "top rung" of the ladder, $f_t$, such that
+$$L_+ f_t = 0$$
+- let $\hbar \ell$ be the eigenvalue of $L_z$ at this top rung
+$$L_z f_t = \hbar \ell f_t; \quad L^2 f_t = \lambda f_t$$
+
+## Top Rung
+
+- now we investigate what happens when one ladder operator is applied to its
+  inverse
+\begin{align*}
+L_\pm L_\mp &=
+(L_x \pm \imath L_y) (L_x \mp \imath L_y) =
+L_x^2 + L_y^2 \mp \imath (L_x L_y - L_y L_x)
+\\ &=
+L^2 - L_z^2 \mp \imath (\imath \hbar L_z)
+\end{align*}
+- solving for $L^2$ gives
+$$L^2 = L_\pm L_\mp + L_z^2 \mp \hbar L_z$$
+
+## Top Rung
+
+- we use the top of the $\mp$, and find that
+$$
+L^2 f_t =
+(L_- L_+ + L_z^2 + \hbar L_z) f_t =
+(0 + \hbar^2 \ell^2 + \hbar^2 \ell) f_t =
+\hbar^2 \ell (\ell + 1) f_t
+$$
+$$
+L^2 f_t =
+\hbar^2 \ell (\ell + 1) f_t =
+\lambda f_t
+\implies
+\lambda =
+\hbar^2 \ell (\ell + 1) f_t
+$$
+- so we have found the eigenvalue of $L^2$ in terms of the maximum eigenvalue
+  of $L_z$
+
+## Bottom Rung
+
+- for the same reasons, there must exist a bottom rung, $f_b$, such that
+$$L_- f_b = 0$$
+- let $\hbar \bar\ell$ be the eigenvalue of $L_z$ at this bottom rung
+$$L_z f_b = \hbar \bar\ell f_b; \quad L^2 f_b = \lambda f_b$$
+
+## Bottom Rung
+
+- we now use the bottom of the $\mp$, where we had previously used the top, and
+  find that
+$$
+L^2 f_b =
+(L_+ L_- + L_z^2 - \hbar L_z) f_b =
+(0 + \hbar^2 \bar\ell^2 - \hbar^2 \bar\ell) f_b =
+\hbar^2 \bar\ell (\bar\ell - 1) f_b
+$$
+$$
+L^2 f_b =
+\hbar^2 \bar\ell (\bar\ell - 1) f_b
+\lambda f_b
+\implies
+\lambda =
+\hbar^2 \bar\ell (\bar\ell - 1)
+$$
+
+## Combining the Top and Bottom
+
+- we see that
+$$
+\lambda = \hbar^2 \ell (\ell + 1) = \hbar^2 \bar\ell (\bar\ell - 1)
+\implies
+\ell (\ell + 1) = \bar\ell (\bar\ell - 1)
+$$
+- there are two possibilities here
+
+1. $\bar\ell = \ell + 1$
+    - that would mean the bottom rung is higher than the top!
+2. $\bar\ell = -\ell$
+
+## Eigenvalues of Angular Momentum
+
+- we have just shown that the eigenvalues of $L_z$ are $m \hbar$, where
+  $m = -\ell, -\ell+1, \ldots, 1+\ell, +\ell$
+- if we let the number of eigenvalues be $N$, then $\ell = -\ell + N$
+$$\ell = N / 2$$
+- $\ell$ must be an integer, or a half-integer
+$$\ell = 0, 1/2, 1, 3/2, \ldots$$
+- the eigenfunctions are characterized by $\ell$ and $m$
+$$
+L^2 f_\ell^m = \hbar^2 \ell (\ell + 1) f_\ell^m;
+\quad
+L_z f_\ell^m = \hbar m f_\ell^m
+$$
+
+
+# Eigenfunctions
+
+## Angular Momentum in Spherical Coordinates
+
+- the angular momentum operator is
+$$\vb{L} = \frac{\imath}{\hbar} \qty( \vb{r} \cross \grad )$$
+- in spherical coordinates, the gradient is given by
+$$
+\grad =
+\hat{r} \pdv{r} +
+\hat{\theta} \frac{1}{r} \pdv{\theta} +
+\hat{\phi} \frac{1}{r \sin\theta} \pdv{\phi}
+$$
+- $\vb{r}$ is simply $r \hat{r}$
+
+## Angular Momentum in Spherical Coordinates
+
+$$
+\vb{L} =
+\frac{\hbar}{\imath}
+\qty[
+  r ( \hat{r} \cross \hat{r}    ) \pdv{r} +
+    ( \hat{r} \cross \hat\theta ) \pdv{\theta} +
+    ( \hat{r} \cross \hat\phi   ) \frac{1}{\sin\theta} \pdv{\phi}
+]
+$$
+
+- $(\hat{r} \cross \hat{r}   ) = 0$,
+  $(\hat{r} \cross \hat\theta) = \hat\phi$, and
+  $(\hat{r} \cross \hat\phi  ) = -\hat\phi$
+$$
+\vb{L} =
+\frac{\hbar}{\imath}
+\qty(
+  \hat\phi \pdv{\theta} -
+  \hat\theta \frac{1}{\sin\theta} \pdv{\phi}
+)
+$$
+
+## Angular Momentum in Spherical Coordinates
+
+- write the unit vectors $\hat\theta$ and $\hat\phi$ in cartesian coordinates
+\begin{align*}
+\hat\theta &=
+(\cos\theta \cos\phi) \hat\imath +
+(\cos\theta \sin\phi) \hat\jmath -
+(\sin\theta         ) \hat{k}
+\\
+\hat\phi &= -(\sin\phi) \hat\imath + (\cos\phi) \hat\jmath
+\end{align*}
+\begin{align*}
+\vb{L} = \frac{\hbar}{\imath} \Bigg[ &
+(-\sin\phi \hat\imath + \cos\phi \hat\jmath) \pdv{\theta}
+\\ &
+-(\cos\theta \cos\phi \hat\imath +
+  \cos\theta \sin\phi \hat\jmath -
+  \sin\theta \hat{k}) \frac{1}{\sin\theta} \pdv{\phi}
+\Bigg]
+\end{align*}
+
+## Angular Momentum in Spherical Coordinates
+
+- separating the $x$, $y$, and $z$ components, we find
+\begin{align*}
+L_x &=
+\frac{\hbar}{\imath} \qty(
+  -\sin\phi \pdv\theta - \cos\phi \cot\theta \pdv\phi
+)
+\\
+L_y &=
+\frac{\hbar}{\imath} \qty(
+  +\cos\phi \pdv\theta - \sin\phi \cot\theta \pdv\phi
+)
+\\
+L_z &=
+\frac{\hbar}{\imath} \pdv\phi
+\end{align*}
+
+## Ladder Operators in Spherical Coordinates
+
+- now we consider the ladder operators
+$$
+L_\pm =
+L_x \pm \imath L_y =
+\frac{\hbar}{\imath}
+\qty[
+  (-\sin\phi \pm \imath \cos\phi)            \pdv\theta -
+  ( \cos\phi \pm \imath \sin\phi) \cot\theta \pdv\phi
+]
+$$
+- by Euler's formula, $\cos\phi \pm \imath \sin \phi = \exp(\pm \imath \phi)$
+$$
+L_\pm =
+\pm \hbar \exp(\pm \imath \phi)
+\qty( \pdv\theta \pm \imath \cot\theta \pdv\phi )
+$$
+
+## Ladder Operators in Spherical Coordinates
+
+$$
+L_+L_- =
+-\hbar^2
+\qty(
+  \pdv[2]{\theta} +
+  \cot\theta \pdv\theta +
+  \cot^2\theta \pdv[2]\phi +
+  \imath \pdv\phi
+)
+$$
+
+- recall $L^2 = L_\pm L_\mp + L_z^2 \mp \hbar L_z$
+
+$$
+L^2 =
+-\hbar^2 \qty[
+  \frac{1}{\sin\theta} \pdv\theta \qty( \sin\theta \pdv\theta ) +
+  \frac{1}{\sin^2\theta} \pdv[2]\phi
+]
+$$
+
+## Eigenfunctions of $L^2$
+
+- now we apply $L^2$ to its eigenfunction, $f_\ell^m(\theta,\phi)$, which has
+  eigenvalue $\hbar^2 \ell (\ell + 1)$
+$$
+L^2 f_\ell^m =
+-\hbar^2
+\qty[
+  \frac{1}{\sin\theta} \pdv\theta \qty( \sin\theta \pdv\theta ) +
+  \frac{1}{\sin^2\theta} \pdv[2]\phi
+] f_\ell^m =
+\hbar^2 \ell (\ell + 1) f_\ell^m
+$$
+- this is simply the angular equation
+$$
+\sin\theta \pdv\theta \qty( \sin\theta \pdv{y}{\theta} ) + \pdv[2]{Y}{\phi} =
+-\ell (\ell + 1) \sin^2\theta Y
+$$
+
+## Eigenfunctions of $L_z$
+
+- $f_\ell^m$ is also an eigenfunction of $L_z$ with eigenvalue $m \hbar$
+$$
+L_z f_\ell^m =
+\frac{\hbar}{\imath} \pdv\phi f_\ell^m =
+\hbar m f_\ell^m
+$$
+- this is equivalent to the azimuthal equation
+$$\frac{1}{\Phi} \dv[2]{\Phi}{\phi} = -m^2$$
+
+## Spherical Harmonics
+
+- $f_\ell^m$ is simply $Y_\ell^m(\theta, \phi)$, the spherical harmonic
+  (after normalization)
+- spherical harmonics are eigenfunctions of $L^2$ and $L_z$
+- when solving the Schrödinger equation by separation of variables, we
+  "inadvertently" constructed eigenfunctions of the three commuting operators
+$$
+H \psi = E \psi;
+\quad
+L^2 \psi = \hbar^2 \ell (\ell + 1) \psi;
+\quad
+L_z \psi = \hbar m \psi
+$$
+
+## Schrödinger Equation
+
+- we can now write the Schrödinger equation in this form
+$$
+\frac{1}{2 m r^2} \qty[ -\hbar^2 \pdv{r} \qty( r^2 \pdv{r} ) + L^2 ] \psi +
+V \psi =
+E \psi
+$$
+
+## Thank You

@@ -1,0 +1,3 @@
+\usepackage{comment}
+\graphicspath{img}
+\logo{\includegraphics[width=0.5in]{img/logo.eps}}

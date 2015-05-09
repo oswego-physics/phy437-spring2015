@@ -1,0 +1,206 @@
+1---
+author: "Daniel Wysocki and Kenny Roffo"
+title: "Uncertainty Principle"
+date: "March 5, 2015"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "dolphin"
+    fonttheme: "serif"
+    keep_tex: true
+    includes:
+      in_header: [header.tex]
+---
+
+
+# Generalized Uncertainty Principle
+
+- for any observable $A$, the variance can be expressed by
+\begin{displaymath}
+\sigma_A^2=\braket{(\hat{A}-\expval{A})\Psi}{(\hat{A}-\expval{A})\Psi}
+\end{displaymath}
+
+- we define $f:=(\hat{A}-\expval{A})\Psi$, and $g:=(\hat{B}-\expval{B})\Psi$
+  for any other observable $B$
+
+- multiplying the variance of two observables we have
+\begin{displaymath}
+\sigma_A^2\sigma_B^2=\braket{f}\braket{g}\ge \abs{\braket{f}{g}}^2
+\end{displaymath}
+
+- for any complex number $z$, we have
+\begin{displaymath}
+\abs{z}^2=[\Re(z)]^2+[\Im(z)]^2\ge[\Im(z)]^2=\left[\frac{1}{2i}(z-z^*)\right]^2
+\end{displaymath}
+
+# Generalized Uncertainty Principle
+
+- now if we let $z=\braket{f}{g}$ we have
+\begin{displaymath}
+\sigma_A^2\sigma_B^2\ge\left(\frac{1}{2i}[\braket{f}{g}-\braket{g}{f}]\right)^2
+\end{displaymath}
+
+\begin{align*}
+\braket{f}{g} &= \braket{(\hat{A}-\expval{A})\Psi}{(\hat{B}-\expval{B})\Psi}
+\\
+&=\braket{\Psi}{(\hat{A}-\expval{A})(\hat{B}-\expval{B})\Psi}
+\\
+&=\braket{\Psi}{(\hat{A}\hat{B}-\hat{A}\expval{B}-\hat{B}\expval{A}+\expval{A}\expval{B})\Psi}
+\\
+&=\braket{\Psi}{\hat{A}\hat{B}\Psi}-\expval{B}\braket{\Psi}{\hat{A}\Psi}-\expval{A}\braket{\Psi}{\hat{B}\Psi}+\expval{A}\expval{B}\braket{\Psi}{\Psi}
+\\
+&=\expval{\hat{A}\hat{B}}-\expval{B}\expval{A}-\expval{A}\expval{B}+\expval{A}\expval{B}
+\\
+&=\expval{\hat{A}\hat{B}}-\expval{A}\expval{B}
+\end{align*}
+
+# Generalized Uncertainty Principle
+
+- thus $\braket{f}{g}=\expval*{\hat{A}\hat{B}}-\expval{A}\expval{B}$
+  and by the same process
+  $\braket{g}{f}=\expval*{\hat{B}\hat{A}}-\expval{B}\expval{A}$
+
+- so
+\begin{displaymath}
+\braket{f}{g}-\braket{g}{f}=\expval*{\hat{A}\hat{B}}-\expval*{\hat{B}\hat{A}}=\expval*{[\hat{A},\hat{B}]}
+\end{displaymath}
+
+- therefore we have the general uncertainty principle:
+\begin{displaymath}
+\sigma_A^2\sigma_B^2\ge\left(\frac{1}{2i}\expval*{[\hat{A},\hat{B}]}\right)^2
+\end{displaymath}
+
+# Uncertainty Principle of Momentum and Position
+
+- consider the Hermitian operators $\hat{x}$ and $\hat{p}$ whose conjugate
+  is $[\hat{x},\hat{p}]=i\hbar$
+
+\begin{align*}
+\sigma_x^2\sigma_p^2 &\ge \left(\frac{1}{2i}\expval{[\hat{x},\hat{p}]}\right)^2
+\\
+\sigma_x^2\sigma_p^2 &\ge \left(\frac{1}{2i}i\hbar\right)^2
+\\
+\sigma_x^2\sigma_p^2 &\ge \left(\frac{\hbar}{2}\right)^2
+\\
+\sigma_x\sigma_p &\ge \frac{\hbar}{2}
+\end{align*}
+
+# Incompatible Observables
+
+- there is an "uncertainty principle" for every pair of observables $A$ and $B$
+  such that $\comm*{A}{B} \neq 0$
+    - incompatible observables
+- they cannot have a complete set of common eigenfunctions
+- in contrast, *compatible* observables do have complete sets of simultaneous
+  eigenfunctions, and therefore have uncertainty principles which take the form
+$$\sigma_A^2 \sigma_B^2 \ge 0$$
+
+# Compatible Observables Example
+
+- for example, we will find $\sigma_T \sigma_p$, where $T$ and $p$ are the
+  kinetic energy and momentum, respectively
+- $\hat{T} = \hat{p}^2 / 2m$
+\begin{align*}
+  \comm*{\hat{T}}{\hat{p}} &=
+  \hat{T}\hat{p} - \hat{p}\hat{T}
+  \\ &=
+  \frac{\hat{p}^2}{2 m} \hat{p} - \hat{p} \frac{\hat{p}^2}{2 m}
+  \\ &=
+  \frac{\hat{p}^3}{2 m} - \frac{\hat{p}^3}{2 m} = 0
+  \\ \implies
+  \sigma_T \sigma_p \geq 0
+\end{align*}
+
+
+# The Minimum-Uncertainty Wave Packet
+
+- the Gaussian wave packet and the ground state of the harmonic oscillator reach the position-momentum uncertainty limit
+- question: is there a most general minimum-uncertainty wave packet?
+- in the derivation of the uncertainty principle, two inequalities are used; if we restrict this to equality, minimum values can be found.
+- the Schwartz inequality becomes an equality when one function is a multiple of the other, $f(x)=cg(x), c \in \mathbb{C}$
+
+# The Minimum-Uncertainty Wave Packet
+
+- After the use of the Schwarz inequality, we used that $Re(z)+Im(z) \ge Im(z)$, for some $z$. Making this an equality implies $Re(z)=0$, and applying this to our functions $f$ and $g$ we have
+\begin{displaymath}
+Re(\braket{f}{g})=Re(c\braket{g}{g})=0
+\end{displaymath}
+Since $\braket{g}{g}\ne0$, $c$ must only have an imaginary part, $ia$
+- Applying this to the position-momentum uncertainty yields:
+\begin{displaymath}
+\qty(\frac{\hbar}{i}\dod{}{x}-\expval{p})\Psi = ia(x-\expval{x})\Psi
+\end{displaymath} 
+- This is a differential equation with general solution
+\begin{displaymath}
+\Psi(x)=Ae^{-a(x-\expval{x})^2/2\hbar}e^{i\expval{p}x/\hbar}
+\end{displaymath}
+- This is the form f a gaussian, thus the most general minimum uncertainty wave packet is a gaussian.
+
+# The Energy--Time Uncertainty Principle
+
+- the position--momentum uncertainty principle is often written as
+$$\Delta x \Delta p \geq \frac{\hbar}{2}$$
+- it is often accompanied by the energy--time uncertainty principle
+$$\Delta t \Delta E \geq \frac{\hbar}{2}$$
+- don't be fooled, they may look similar but are entirely different
+- position, momentum, and energy are all dynamical variables, while time is
+  an independent variable
+- now we will work towards deriving it
+
+# The Energy--Time Uncertainty Principle
+
+- we begin by computing the time derivative of the expectation value of an
+  observable, $Q(x, p, t)$
+\begin{align*}
+\dod{}{t} \expval{Q} &=
+\dod{}{t} \braket*{\Psi}{\hat{Q} \Psi}
+\\ &=
+\braket*{\dpd{\Psi}{t}}{\hat{Q} \Psi} +
+\braket*{\Psi}{\dpd{\hat{Q}}{t} \Psi} +
+\braket*{\Psi}{\hat{Q} \dpd{\Psi}{t}}
+\end{align*}
+- use the Schrödinger equation to substitute for $\pd{\Psi}{t}$
+$$\imath\hbar \dpd{\Psi}{t} = \hat{H} \Psi$$
+
+# The Energy--Time Uncertainty Principle
+
+$$\dod{}{t} \expval{Q} =
+  -\frac{1}{\imath\hbar} \braket*{\hat{H} \Psi}{\hat{Q} \Psi} =
+  +\frac{1}{\imath\hbar} \braket{\Psi}{\hat{Q} \hat{H} \Psi}
+  +\expval{\dpd{\hat{Q}}{t}}$$
+
+- $\hat{H}$ is hermitian, so
+  $\braket*{\hat{H} \Psi}{\hat{Q} \Psi} = \braket*{\Psi}{\hat{H}\Hat{Q}\Psi}$
+
+$$\dod{}{t} \expval{Q} =
+  \frac{\imath}{\hbar} \expval{\comm*{\hat{H}}{\hat{Q}}}
++ \expval{\dpd{\hat{Q}}{t}}$$
+
+- if $\hat{Q}$ is time-independent, the rate of change of the expectation value
+  is determined by the commutator of $\hat{Q}$ with $\hat{H}$
+- $\comm*{\hat{H}}{\hat{Q}} = 0 \implies \expval{Q}$ is constant
+
+# The Energy--Time Uncertainty Principle
+
+- using $A = H$ and $B = Q$ in the generalized uncertainty principle, and
+  assuming $Q$ is time-independent, we see that
+$$\sigma_H^2 \sigma_Q^2 \geq
+  \qty( \frac{1}{2 \imath} \expval*{\comm*{\hat{H}}{\hat{Q}}} )^2 =
+  \qty( \frac{1}{2 \imath} \frac{\hbar}{\imath} \dod{\expval*{Q}}{t} )^2 =
+  \qty( \frac{\hbar}{2} )^2 \qty( \dod{\expval*{Q}}{t} )^2$$
+$$\sigma_H \sigma_Q \geq \frac{\hbar}{2} \abs{\dod{\expval*{Q}}{t}}$$
+$$\Delta E := \sigma_H,
+  \text{ and }
+  \Delta t := \frac{\sigma_Q}{\abs{\dif\expval{Q}/\dif t}}$$
+$$\Delta E \Delta t \geq \frac{\hbar}{2}$$
+
+# The Energy--Time Uncertainty Principle
+
+- $\Delta t$ represents the amount of time it takes the expectation value of
+  $Q$ to change by one standard deviation
+$$\sigma_Q = \abs{\dod{\expval*{Q}}{t}} \Delta t$$
+- $\Delta t$ depends on the observable, $Q$, being observed
+- if $\Delta E$ is small, the rate of change for *all* observables must be
+  small
+- if *any* observable changes rapidly, the "uncertainty" in the energy must be
+  large

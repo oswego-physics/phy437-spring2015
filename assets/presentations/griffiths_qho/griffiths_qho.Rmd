@@ -1,0 +1,185 @@
+---
+author: "Daniel Wysocki and Kenny Roffo"
+title: "Quantum Harmonic Oscillator"
+date: "February 26, 2015"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "dolphin"
+    fonttheme: "serif"
+    includes:
+      in_header: [header.tex]
+---
+
+# The Harmonic Oscillator
+
+- the classic example of a harmonic oscillator in classical mechanics is a
+  mass $m$ attached to a spring with spring constant $k$
+$$F = -kx = m \dod[2]{x}{t}$$
+- this is an ODE with solution
+$$x(t) = A \sin(\omega t) + B \cos(\omega t),$$
+- where $\omega = \sqrt{k / m}$
+
+# The Harmonic Oscillator Potential
+
+- the potential energy is parabolic, and given by $V(x) = \frac{1}{2} k x^2$,
+- practically any potential is approximately parabolic, when $x$ is close to
+  some local minimum, $x_0$
+- this can be shown by the taylor series centered around $x_0$
+
+
+# The Harmonic Oscillator Potential
+
+$$V(x) = V(x_0) + V'(x_0)(x-x_0) + \frac{1}{2} V''(x_0)(x-x_0)^2 + \ldots$$
+
+- ignore the constant $V(x_0)$, as that has no effect on the force
+- $V'(x_0) = 0$, because it is a local minimum
+- ignore the higher order terms, leaving
+$$V(x) \cong \frac{1}{2} V''(x_0) (x-x_0)^2$$
+
+
+# Ladder Operators
+
+- the time independent Schrödinger equation is given by
+$$-\frac{\hbar^2}{2 m} \dod[2]{\psi}{x} + V(x) \psi = E \psi$$
+- using $\hat{p}^2 = -\hbar^2 \od[2]{}{x}$,
+  and $V(x) = \frac{1}{2} m \omega^2 x^2$, we can rewrite the wave equation as
+$$\frac{1}{2 m} \left[ \hat{p}^2 + (m \omega x)^2 \right] \psi = E \psi$$
+- so the Hamiltonian is
+$$\hat{H} = \frac{1}{2 m} \left[ \hat{p}^2 + (m \omega x)^2 \right]$$
+
+
+
+# Ladder Operators
+
+- if $\hat{p}$ were a scalar, and not an operator, then we could rewrite the
+  Hamiltonian as
+$$\hat{H} = \frac{1}{2 m}
+  (\imath \hat{p} + m \omega x) (-\imath \hat{p} + m \omega x)$$
+- this is obviously false, but it is still worth inspecting this quantity on
+  the left
+- to make the math simpler later, we multiply by $1/(\hbar\omega)$
+$$\frac{1}{2 \hbar m \omega}
+  (\imath \hat{p} + m \omega x) (-\imath \hat{p} + m \omega x)$$
+
+$$\left[ \frac{1}{\sqrt{2 \hbar m \omega}}(\imath \hat{p} + m \omega x)  \right]
+\left[ \frac{1}{\sqrt{2 \hbar m \omega}}(-\imath \hat{p} + m \omega x) \right]
+:= a_- a_+$$
+
+
+# Ladder Operators
+
+- we have just defined the raising operator ($a_+$) and the lowering operator
+  ($a_-$)
+$$a_\pm :=
+  \frac{1}{\sqrt{2 \hbar m \omega}} [\mp \imath \hat{p} + m \omega x]$$
+- remember, if $\hat{p}$ behaved like a number, then
+  $a_- a_+ = 1/(\hbar \omega) \hat{H}$
+- let us now see what $a_- a_+$ *actually* is
+
+
+# Product of Ladder Operators
+
+\begin{align*}
+a_- a_+ &=
+\frac{1}{2 \hbar m \omega}
+(\imath \hat{p} + m \omega x)
+(-\imath \hat{p} + m \omega x)
+\\ &=
+\frac{1}{2 \hbar m \omega}
+[\hat{p}^2 + (m \omega x)^2 - \imath m \omega (x \hat{p} - \hat{p} x)]
+\\ &=
+\frac{1}{2 \hbar m \omega}
+[\hat{p}^2 + (m \omega x)^2 - \imath m \omega [x, \hat{p}]]
+\\ &=
+\frac{1}{2 \hbar m \omega}
+[\hat{p}^2 + (m \omega x)^2 - \imath m \omega (\imath \hbar)]
+\\ &=
+\frac{1}{2 \hbar m \omega} [\hat{p}^2 + (m \omega x)^2] + \frac{1}{2}
+\\ &=
+\frac{1}{\hbar \omega} \hat{H} + \frac{1}{2}
+\end{align*}
+
+
+# Hamiltonian in Terms of Ladder Operators
+
+- we have just shown
+$$a_- a_+ = \frac{1}{\hbar \omega} \hat{H} + \frac{1}{2}$$
+- solving for $\hat{H}$ gives
+$$\hat{H} = \hbar \omega \left( a_- a_+ - \frac{1}{2} \right)$$
+- working out the derivation on the previous slide again, with the order of
+  operators reversed gives
+$$\hat{H} = \hbar \omega \left( a_+ a_- + \frac{1}{2} \right)$$
+
+
+# Raising Operator
+
+- $\psi$ satisfies the Schrödinger equation with energy $E$
+$$\hat{H} \psi = E \psi$$
+- now we will show that $a_+ \psi$ satisfies the Schrödinger equation with
+  energy $E + \hbar\omega$
+
+# Raising Operator
+
+\begin{align*}
+\hat{H} (a_+ \psi) &=
+\hbar \omega \left( a_+ a_- + \frac{1}{2} \right) (a_+ \psi) =
+\hbar \omega \left( a_+ a_- a_+ + \frac{1}{2} a_+ \right) \psi
+\\ &=
+\hbar \omega a_+ \left( a_- a_+ + \frac{1}{2} \right) \psi =
+a_+ \left[ \hbar \omega \left( a_+ a_- + \frac{1}{2} + 1 \right) \psi \right]
+\\ &=
+a_+ (\hat{H} + \hbar \omega) \psi =
+a_+ (E + \hbar \omega) \psi =
+(E + \hbar \omega) (a_+ \psi).
+\end{align*}
+
+
+# Lowering Operator
+
+\begin{align*}
+\hat{H} (a_- \psi) &=
+\hbar \omega \left( a_- a_+ - \frac{1}{2} \right) (a_- \psi) =
+\hbar \omega \left( a_- a_+ a_- - \frac{1}{2} a_- \right) \psi
+\\ &=
+\hbar \omega a_- \left( a_+ a_- - \frac{1}{2} \right) \psi =
+a_- \left[ \hbar \omega \left( a_- a_+ - \frac{1}{2} - 1 \right) \psi \right]
+\\ &=
+a_- (\hat{H} - \hbar \omega) \psi =
+a_- (E - \hbar \omega) \psi =
+(E - \hbar \omega) (a_- \psi).
+\end{align*}
+
+
+# The Lowest Rung
+
+- if we apply the lowering operator repeatedly, eventually we will reach a
+  negative energy
+- however, there occurs a point where $a_- \psi_0 = 0$
+    - this is non-normalizable, and therefore an invalid solution
+- this helps us determine $\psi_0(x)$
+$$\frac{1}{\sqrt{2 \hbar m \omega}}
+  \left( \hbar \dod{}{x} + m \omega x \right) \psi_0 =
+  0$$
+$$\psi_0(x) =
+  \sqrt[4]{\frac{m \omega}{\pi \hbar}} \exp(-\frac{m \omega}{2 \hbar} x^2)$$
+
+# Solution to All Stationary States
+
+- recursive solution
+\begin{align*}
+\psi_0(x) &=
+\sqrt[4]{\frac{m \omega}{\pi \hbar}} \exp(-\frac{m \omega}{2 \hbar} x^2)
+\\
+\psi_n(x) &=
+A_n (a_+)^n \psi_0(x), \quad
+\text{ with }
+E_n = \left( n + \frac{1}{2} \right) \hbar \omega
+\end{align*}
+- we can solve for the normalization constant $A_n$ individually for each
+  solution, but it turns out that
+$$A_n = \frac{1}{\sqrt{n!}}$$
+
+
+
+# Thank you!

@@ -1,0 +1,170 @@
+---
+author: "Daniel Wysocki and Kenny Roffo"
+title: "Quantum Mechanics -- Chapter 2"
+date: "February 12, 2015"
+output:
+  beamer_presentation:
+    toc: true
+    incremental: true
+    theme: "Madrid"
+    colortheme: "dolphin"
+    fonttheme: "serif"
+    includes:
+      in_header: [header.tex]
+---
+
+# Hilbert Space
+
+## Linear Algebra
+
+- quantum theory is based on *wave functions* and *operators*
+- the state of a system is represented by its wave function
+- observables are represented by operators
+- wave functions satisfy the defining conditions for *abstract vectors*
+- operators act on them as *linear transformations*
+
+
+## Vectors
+
+- in an $N$-dimensional space, a vector $\ket\alpha$ may be represented by the
+  $N$-tuple of its components, $\{ a_n \}$, with respect to a specified
+  orthonormal basis
+\begin{displaymath}
+\ket\alpha \to \mathbf{a} =
+\begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_N \end{pmatrix}
+\end{displaymath}
+- the "vectors" in quantum mechanics are typically functions, existing in
+  *infinite*-dimensional spaces
+    - the $N$-tuple notation used to represent finite-dimensional vectors
+      becomes problematic
+
+## Bra--ket Notation
+
+- the inner product of two vectors, $\ket\alpha$ and $\ket\beta$, is a
+  generalization of the dot product, and is denoted $\braket{\alpha}{\beta}$
+\begin{displaymath}
+\braket{\alpha}{\beta} =
+a_1^* b_1 + a_2^* b_2 + \ldots + a_N^* b_N
+\end{displaymath}
+- here, $\bra\alpha$ is called the "bra", and $\ket\beta$ is called the "ket"
+- when $\alpha$ and $\beta$ are functions on the interval $\intoo{a,b}$,
+  the inner product is given by the familiar integral
+\begin{displaymath}
+\only<3->{
+\braket{\alpha}{\beta} =
+\int_a^b \alpha(x)^* \beta(x) \dif x
+}
+\end{displaymath}
+
+
+## Hilbert Space
+
+- a wave function must be normalized, i.e.
+\begin{displaymath}
+\braket\Psi =
+\int_{-\infty}^\infty \Psi^* \Psi \dif x =
+\int_{-\infty}^\infty \abs{\Psi}^2 \dif x =
+1
+\end{displaymath}
+- a function, $f(x)$ is *square-integrable* if, on a specified interval
+  $\intoo{a,b}$
+\begin{displaymath}
+\only<2->{
+\braket{f} = \int_a^b \abs{f(x)}^2 \dif x < \infty
+}
+\end{displaymath}
+- the set of all such functions is called *Hilbert space*
+- wave functions live in Hilbert space
+
+
+## Some Properties of Inner Products
+
+- if $f$ and $g$ are both square-integrable, then $\braket{f}{g}$ is guaranteed
+  to exist
+- $\braket{g}{f} = \braket{f}{g}^*$
+- $\braket{f}$ is real and non-negative, and zero only if $f(x) \equiv 0$
+- $f$ is normalized if $\braket{f} = 1$
+- $f$ and $g$ are orthogonal if $\braket{f}{g} = 0$
+- a set of functions $\{ f_n \}$ is orthonormal if
+  $\braket{f_m}{f_n} = \delta_{mn}$
+
+## Complete Functions
+
+- a set of functions $\{ f_n \}$ is said to be *complete* if any *other*
+  function in Hilbert space can be expressed as a linear combination of them
+\begin{displaymath}
+f(x) = \sum_{n=1}^\infty c_n f_n(x)
+\end{displaymath}
+- if the functions $\{ f_n \}$ are orthonormal, then their coefficients may
+  be obtained by Fourier's trick: $c_n = \braket{f_n}{f}$
+- the stationary states $\{ \psi_n \}$ for the infinite square well form a
+  complete orthonormal set on the interval $\intoo{0,a}$
+- the stationary states for the harmonic oscillator form a complete orthonormal
+  set on the interval $\intoo{-\infty,\infty}$
+
+# Observables
+
+## Hermitian Operators
+
+- the expectation value of an operator $Q(x,p)$ can be expressed as
+\begin{displaymath}
+\expval{Q} = \int \Psi^* \hat{Q} \Psi \dif x = \braket{\Psi}{\hat{Q}\Psi}
+\end{displaymath}
+- the outcome of a measurement must be real, therefore
+  $\expval{Q} = \expval{Q}^*$
+- but the complex conjugate reverses the order, meaning
+  $\braket{\Psi}{\hat{Q}\Psi} = \braket{\hat{Q}\Psi}{\Psi}$
+- all operators representing *observables* possess this property
+- such operators are called *hermitian*
+
+
+## Determinate States
+
+- in general, if you observe $Q$ on a set of systems in the identical state
+  $\Psi$, you do not obtain the same result each time
+- this is the indeterminacy of quantum mechanics
+- a *determinate* state, for a given observable $Q$, is a special case,
+  in which each observation gives the same value, $q$
+
+
+## Determinate States
+
+- the standard deviation of an observable $Q$, in a determinate state would be
+  zero
+\begin{align*}
+\sigma^2 &=
+\expval{(\hat{Q} - \expval{Q})^2}
+\\ &=
+\braket{\Psi}{(\hat{Q}-q)^2 \Psi}
+\\ &=
+\braket{(\hat{Q}-q) \Psi}{(\hat{Q}-q) \Psi} = 0
+\end{align*}
+- the only function whose inner product with itself vanishes is zero
+\begin{displaymath}
+\only<2->{
+(\hat{Q}-q) \Psi = 0 \implies \hat{Q} \Psi = q \Psi
+}
+\end{displaymath}
+- $\Psi$ is an eigenfunction for $\hat{Q}$, with eigenvalue $q$
+- all determinate states are eigenfunctions of $\hat{Q}$
+
+## Spectrum
+
+- the collection of all eigenvalues of an operator is called its *spectrum*
+- in the case where two or more linearly independent eigenfunctions share an
+  eigenvalue, the spectrum is said to be *degenerate*
+
+
+
+## Hamiltonian
+
+- stationary states are determinate states of the Hamiltonian
+- they are the eigenfunctions of the Hamiltonian, with eigenvalue $E$:
+  $\hat{H} \psi = E \psi$
+- including the time dependence $\varphi(t)$ to make it $\Psi$ does not change
+  the fact that it is an eigenfunction of $\hat{H}$
+
+
+
+
+# Thank you!

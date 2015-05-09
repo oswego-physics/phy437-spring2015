@@ -1,0 +1,395 @@
+---
+author: "Daniel Wysocki and Kenny Roffo"
+title: "Quantum Mechanics -- Chapter 2"
+date: "February 12, 2015"
+output:
+  beamer_presentation:
+    toc: true
+    incremental: true
+    theme: "Madrid"
+    colortheme: "dolphin"
+    fonttheme: "serif"
+    includes:
+      in_header: [header.tex]
+---
+
+# The Free Particle
+
+## Wave Function
+
+- the free particle has potential $V(x) = 0$ everywhere
+- classically this would give the particle constant velocity, but it is
+  surprisingly tricky in quantum mechanics
+- since $V = 0$, the time-independent Schrödinger wave equation is given by
+\begin{gather*}
+\only<3->{
+  -\frac{\hbar^2}{2 m} \dod[2]{\psi}{x} = E \psi
+} \\
+\only<4->{
+  \dod[2]{\psi}{x} = -k^2 \psi,\quad
+  \text{where } k := \frac{\sqrt{2 m E}}{\hbar}
+}
+\end{gather*}
+
+
+## Wave Function
+
+- this is a differential equation whose characteristic equation has imaginary
+  roots
+\begin{displaymath}
+  \psi(x) = A e^{\imath k x} + B e^{-\imath k x}
+\end{displaymath}
+- multiplying by the time dependence $\varphi(t)$, we have the time-dependent
+  wave equation
+\begin{gather*}
+\only<2->{
+  \Psi(x, t) =
+  \left[ A e^{\imath k x} + B e^{-\imath k x} \right]
+  \exp\left(-\frac{\imath E}{\hbar} t\right)
+  \\
+  \Psi(x, t) =
+  A \exp\left[ \imath k \left( x - \frac{\hbar k}{2 m} t \right) \right] +
+  B \exp\left[-\imath k \left( x + \frac{\hbar k}{2 m} t \right) \right]
+}
+\end{gather*}
+- the first term represents a wave travelling to the right, and the second to
+  the left
+
+
+## Wave Function
+
+- since each wave only differs by the sign of $k$, it will be useful to
+  redefine $k$ as
+\begin{displaymath}
+  k := \pm \frac{\sqrt{2 m E}}{\hbar}
+\end{displaymath}
+- now we may rewrite the wave function as
+\begin{displaymath}
+\only<2->{
+  \Psi_k(x, t) =
+  A \exp\left[ \imath \left( k x - \frac{\hbar k^2}{2 m} t \right) \right]
+}
+\end{displaymath}
+
+
+## Normalization
+
+- we cannot normalize $\Psi_k$, because $\Psi^*_k \Psi_k = |A|^2$, giving
+\begin{displaymath}
+\int_{-\infty}^{+\infty} \Psi^*_k \Psi_k \dif x =
+|A|^2 \int_{-\infty}^{+\infty} \dif x =
+|A|^2 \cdot \infty
+\end{displaymath}
+
+
+## General Solution
+
+- the general solution is still a linear combination of the separable solutions
+- this time $k$ is not restricted to integral values, and so the linear
+  combination must be an integral over $k$
+\begin{displaymath}
+\only<2->{
+  \Psi(x, t) =
+  \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty}
+  \phi(k)
+  \exp\left[\imath \left( k x - \frac{\hbar k^2}{2 m} t \right) \right]
+  \dif k
+}
+\end{displaymath}
+- in essence, $(1 / \sqrt{2 \pi}) \phi(k) \dif k$ is taking the place of the
+  coefficients $c_n$ in the discrete summation
+
+
+## General Solution
+
+- in a specific problem, we are typically given an initial condition
+  $\Psi(x, 0)$, and are asked to find $\Psi(x, t)$
+- we only now have to solve for $\phi(k)$
+\begin{displaymath}
+\only<2->{
+  \Psi(x, 0) =
+  \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty}
+  \phi(k) e^{\imath k x} \dif k
+}
+\end{displaymath}
+
+
+## General Solution
+
+- this is a classic problem in Fourier analysis, whose answer is provided by
+  **Plancherel's theorem**
+\begin{displaymath}
+  f(x) =
+  \frac{1}{\sqrt{2 \pi}}
+  \int_{-\infty}^{+\infty} F(k) e^{\imath k x} \dif k
+  \iff
+  F(k) =
+  \frac{1}{\sqrt{2 \pi}}
+  \int_{-\infty}^{+\infty} f(x) e^{-\imath k x} \dif x
+\end{displaymath}
+- applying this to our problem gives
+\begin{displaymath}
+\only<2->{
+  \phi(k) =
+  \frac{1}{\sqrt{2 \pi}}
+  \int_{-\infty}^{+\infty} \Psi(x, 0) e^{-\imath k x} \dif x.
+}
+\end{displaymath}
+- now we can find $\Psi(x, t)$
+
+
+## de Broglie Wavelength and Speed
+
+- these propogating waves have wavelength $\lambda = 2 \pi / |k|$, and
+  therefore have momentum $p = \hbar k$
+- the speed of the waves is given by dividing the coefficient of $t$ by that
+  of $x$ in $\Psi_k(x, t)$, giving
+\begin{displaymath}
+\only<2->{
+  v_{\rm quantum} = \frac{\hbar |k|}{2 m} = \sqrt{\frac{E}{2 m}}
+}
+\end{displaymath}
+- this is contrary to *classical* speed, which can be determined, for a free
+  particle, by kinetic energy $E = (1/2) m v^2$
+\begin{displaymath}
+\only<3->{
+  v_{\rm classical} = \sqrt{\frac{2 E}{m}} = 2 v_{\rm quantum}
+}
+\end{displaymath}
+
+## Group and Phase Velocity
+
+\begin{figure}[h]
+\includegraphics[width=0.25\textwidth]{img/fig2_11}
+\end{figure}
+
+- the quantum velocity corresponds to the *phase velocity*, the velocity
+  of the individual ripples
+- the classical velocity corresponds to the *group velocity*, the velocity
+  of the *envelope*
+
+
+
+# The Delta-Function Potential
+
+## Classical Bound States and Scattering States
+
+- imagine a particle in a one-dimensional, time-independent potential well,
+  $V(x)$
+- in the *classical* realm, if $V(x)$ at a point is greater than the particle's
+  total energy $E$, it may never pass that point
+    - turning points
+- if the particle is on some interval $(a, b)$, and both $V(a)$ and $V(b)$
+  exceed $E$, then the particle is "stuck"
+    - bound state
+- if, on either side of the particle, $E$ exceeds all values of $V(x)$, then
+  the particle will go off to infinity
+    - scattering state
+
+
+## Classical Bound and Scattering states
+
+\begin{figure}[h]
+\includegraphics[width=0.8\textwidth]{img/fig2_12_ab}
+\end{figure}
+
+
+## Quantum Bound States and Scattering States
+
+- in the *quantum* realm, a particle may *tunnel* through any finite potential
+  barrier
+- now all that matters is the potential at infinity
+\begin{displaymath}
+\only<2->{
+  \begin{dcases*}
+    E < [V(-\infty) \text{ and } V(+\infty)] \implies & bound state,
+    \\
+    E > [V(-\infty) \text{ or } V(+\infty)] \implies & scattering state.
+  \end{dcases*}
+}
+\end{displaymath}
+- in practice, most potentials go to *zero* at infinity, simplifying the
+  criterion to
+\begin{displaymath}
+\only<3->{
+  \begin{dcases*}
+    E < 0 \implies & bound state,
+    \\
+    E > 0 \implies & scattering state.
+  \end{dcases*}
+}
+\end{displaymath}
+
+
+## Quantum Bound States and Scattering States
+
+\begin{figure}[h]
+\includegraphics[width=0.40\textwidth]{img/fig2_12_c}
+\end{figure}
+
+- *bound* state for classical particle, but *scattering* state for quantum
+  particle
+
+
+## The Delta--Function Well
+
+\begin{figure}[h]
+\includegraphics[width=0.40\textwidth]{img/fig2_13}
+\end{figure}
+
+- the **Dirac delta function** has infinite height, infinitesimal width, and
+  an *area* of 1
+
+\begin{displaymath}
+\delta(x) := \begin{dcases*}
+  0, & if $x \neq 0$
+  \\
+  \infty, & if $x = 0$
+\end{dcases*},\quad
+\text{with }
+\int_{-\infty}^{+\infty} \delta(x) \dif x = 1.
+\end{displaymath}
+
+## The Delta--Function Well
+
+- $\delta(x - a)$ would be a spike of area 1 at the point $a$
+- multiplying by a function $f(x)$ is equivalent to multiplying by $f(a)$,
+  as it is zero everywhere outside of $a$
+
+
+## The Delta--Function Well
+
+- as an example, consider a potential $V(x) = -\alpha \delta(x)$
+- the wave function has *exactly one* bound state, regardless of the magnitude
+  of $\alpha$
+\begin{displaymath}
+\only<2->{
+  \psi(x) = \frac{\sqrt{m \alpha}}{\hbar} e^{-m \alpha \abs{x} / \hbar^2};\quad
+  E = -\frac{m \alpha^2}{2 \hbar^2}
+}
+\end{displaymath}
+- by considering the scattering state, we encounter several waves
+    - incident wave
+    - reflected wave
+    - transmitted wave
+
+
+## Reflection and Transmission
+
+- $R$ is the fraction of incoming particles that will bounce back
+- $T$ is the fraction of incoming that will pass through the barrier
+\begin{gather*}
+\only<2->{
+  R + T = 1
+  \\
+  R = \frac{1}{1 + (2 \hbar^2 E / m \alpha^2)},\quad
+  T = \frac{1}{1 + (m \alpha^2 / 2 \hbar^2 E)}.
+}
+\end{gather*}
+- the probability of transmission is proportional to the energy
+
+
+
+# The Finite Square Well
+
+## Problem
+
+- consider the *finite* square well potential, where $V_0$ is a positive real
+  potential
+\begin{displaymath}
+V(x) = \begin{dcases*}
+  -V_0, & for $-a \leq x \leq a$,
+  \\
+  0, & for $\abs{x} > a$,
+\end{dcases*}
+\end{displaymath}
+
+## General Solution
+
+- the general solution is given by
+\begin{displaymath}
+\begin{dcases*}
+  F e^{-\kappa x}, & for $x > a$,
+  \\
+  D \cos(l x),     & for $0 < x < a$,
+  \\
+  \psi(-x),        & for $x < 0$.
+\end{dcases*}
+\end{displaymath}
+- continuity of $\psi(x)$ and $\od{\psi}{x}$ at the boundaries imply
+  $\kappa = l \tan(l a)$, where
+\begin{gather*}
+\only<2->{
+  \kappa := \frac{\sqrt{-2 m E}}{\hbar}
+  \\
+  l := \frac{\sqrt{2 m (E + V_0)}}{\hbar}
+}
+\end{gather*}
+
+
+## Energy of the Finite Square Well
+
+- $\kappa$ and $l$ are both functions of $E$, so to solve for $E$ we first
+  define:
+\begin{displaymath}
+  z := l a,\quad
+  \text{ and }
+  z_0 := \frac{a}{\hbar} \sqrt{2 m V_0}.
+\end{displaymath}
+- these can be rewritten as a transcendental equation
+\begin{displaymath}
+\only<2->{
+  \tan z = \sqrt{(z_0 / z)^2 - 1}.
+}
+\end{displaymath}
+- can only be solved numerically
+
+
+## Energy of the Finite Square Well
+
+\begin{figure}[h]
+\includegraphics[width=0.75\textwidth]{img/fig2_18}
+\end{figure}
+
+
+## Wide, Deep Well
+
+- if $z_0$ is very large, the intersections occur just below $z_n = n \pi /2$,
+  where $n$ is odd
+\begin{displaymath}
+  E_n + V_0 \cong \frac{1}{2 m} \left(\frac{n \pi \hbar}{2 a}\right)^2
+\end{displaymath}
+- there are a finite number of bound states, but as $V_0 \to \infty$, it
+  approaches the infinite square well, with infinite bound states
+
+
+## Shallow, Narrow Well
+
+- as $z_0$ decreases, so too does the number of bound states
+- this reaches a limit at $z_0 < \pi / 2$, where the lowest *odd* state
+  disappears, leaving a single state
+- no matter how small $z_0$ becomes, the number of bound states is always
+  at least one
+
+
+## Transmission
+
+\begin{figure}[h]
+\includegraphics[width=0.40\textwidth]{img/fig2_19}
+\end{figure}
+\begin{displaymath}
+T^{-1} =
+1 +
+\frac{V_0^2}{4 E (E + V_0)}
+\sin^2\left(\frac{2a}{\hbar} \sqrt{2 m (E + V_0)}\right)
+\end{displaymath}
+- when the sine is zero, $T = 1$ (the well becomes "transparent") leaving us
+  with
+\begin{displaymath}
+E_n + V_0 = \frac{n^2 \pi^2 \hbar^2}{2 m (2 a)^2}
+\end{displaymath}
+- these are the allowed energies of the infinite square well
+
+
+
+## Thank you!

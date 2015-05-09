@@ -1,0 +1,223 @@
+---
+author: Daniel Wysocki and Dylan McIntyre
+title: Solids
+date: April 30, 2015
+output:
+  beamer_presentation:
+    theme: CambridgeUS
+    colortheme: dolphin
+    fonttheme: serif
+    includes:
+      in_header: [header.tex]
+---
+
+# Introduction
+
+## Solid State
+
+- some loosely bound, outermost valence electrons from each atom detached
+- not subject to Coulomb field of a specific nucleus
+    - subject to potential of entire crystal lattice
+
+
+## Primitive Models
+
+1. electron gas theory of Sommerfeld
+    - ignores all forces except confining boundaries
+    - treats wandering electrons as free particles in a box
+      ($\infty$ cube well)
+\pause
+2. Bloch's theory
+    - periodic potential representing electrical attraction of regularly spaced
+      nucleii
+    - ignores electron-electron repulsion
+
+
+# The Free Electron Gas
+
+## Schrödinger Equation
+
+- rectangular solid with dimensions $\ell_x$, $\ell_y$, $\ell_z$
+$$
+V(x, y, z) =
+\begin{dcases*}
+0, & if $0 < x < \ell_x$, $0 < y < \ell_y$, and $0 < z < \ell_z$
+\\
+\infty, & otherwise
+\end{dcases*}
+$$
+$$-\frac{\hbar^2}{2 m} \laplacian \psi = E \psi$$
+$$\psi(x, y, z) = X(x) Y(y) Z(z)$$
+
+
+## Schrödinger Equation (cont.)
+
+$$
+k_x \equiv \frac{\sqrt{2 m E_x}}{\hbar},
+k_y \equiv \frac{\sqrt{2 m E_y}}{\hbar},
+k_z \equiv \frac{\sqrt{2 m E_z}}{\hbar},
+$$
+General solutions
+$$X(x) = A_x \sin(k_x x) + B_x \cos(k_x x);\ Y(y) = \ldots;\ Z(z) = \ldots$$
+
+
+## Schrödinger Equation (cont.)
+
+Boundary conditions require
+$$X(0) = Y(0) = Z(0) = 0$$
+so
+$$B_x = B_y = B_z = 0$$
+and
+$$X(\ell_x) = Y(\ell_y) = Z(\ell_z)$$
+meaning
+$$
+k_x \ell_x = n_x \pi; \quad
+k_y \ell_y = n_y \pi; \quad
+k_z \ell_z = n_z \pi
+$$
+
+
+## Schrödinger Equation (cont.)
+
+\begin{gather*}
+\psi_{n_x n_y n_z} =
+\sqrt{\frac{8}{\ell_x \ell_y \ell_z}}
+\sin(\frac{n_x \pi}{\ell_x} x)
+\sin(\frac{n_y \pi}{\ell_y} y)
+\sin(\frac{n_z \pi}{\ell_z} z)
+\\
+E_{n_x n_y n_z} =
+\frac{\hbar^2 \pi^2}{2 m}
+\qty(
+  \frac{n_x^2}{\ell_x^2} + \frac{n_y^2}{\ell_y^2} + \frac{n_z^2}{\ell_z^2}
+) =
+\frac{\hbar^2 k^2}{2 m}
+\\
+k = \norm{\vb{k}}
+\\
+\vb{k} = (k_x, k_y, k_z)
+\end{gather*}
+
+
+## $k$-space
+
+- 3D space with axes $k_x$, $k_y$, and $k_z$
+- planes drawn at $k_x = (\pi/\ell_x), (2\pi/\ell_x), \ldots$,
+  $k_y = \ldots$, $k_z = \ldots$
+- each intersection represents a distinct (one-particle) stationary state
+- each block occupies a volume in ($k$-space) of
+$$
+k_x k_y k_z =
+\frac{\pi^3}{\ell_x \ell_y \ell_z} =
+\frac{\pi^3}{V_{\rm object}}$$
+- each block contains two electrons ($\uparrow\downarrow$)
+
+## $k$-space
+
+- all free electrons fill 1 octant of sphere in $k$-space, centered at origin
+    - sphere has radius $k_F$
+\begin{gather*}
+V_{\rm octant} =
+\frac{1}{8} \qty( \frac{4}{3} \pi k_F^3 ) =
+\frac{N q}{2} \qty( \frac{\pi^3}{V_{\rm object}} )
+\\
+k_F = (3 \rho \pi^2)^{1/3}
+\\
+\rho \equiv \frac{N q}{V_{\rm object}}
+\end{gather*}
+
+
+## Fermi surface
+
+- boundary separating occupied and unoccupied states in $k$-space
+- corresponding energy is Fermi energy, $E_F$
+$$
+E_F =
+\frac{\hbar^2}{2 m} k_F^2 =
+\frac{\hbar^2}{2 m} (3 \rho \pi^2)^{2/3}
+$$
+
+
+## Total Energy
+
+- a shell of thickness $\dd k$ has volume
+$$\frac{1}{8} (4 \pi k^2) \dd k$$
+- number of electron states in shell
+$$\frac{2 [(1/2) \pi k^2 \dd k]}{\pi^3 / V} = \frac{V}{\pi^2} k^2 \dd k$$
+- each carries energy $\hbar^2 k^2 / 2m$, so energy of shell is
+$$\dd E = \frac{\hbar^2 k^2}{2 m} \frac{V}{\pi^2} k^2 \dd k$$
+
+
+## Total Energy (cont.)
+
+\begin{align*}
+E_{\rm tot} &=
+\int_0^{k_F} \dd E =
+\frac{\hbar^2 V}{2 \pi^2 m} \int_0^{k_f} k^4 \dd k
+\\ &=
+\frac{\hbar^2 k_F^5 V}{10 \pi^2 m} =
+\frac{\hbar^2 (3 \pi^2 N q)^{5/3}}{10 \pi^2 m} V^{-2/3}
+\end{align*}
+
+- total energy is inversely proportional to total volume
+
+
+## Degeneracy pressure
+
+- if the box expands by $\dd V$, the total energy decreases
+$$
+\dd E_{\rm tot} =
+-\frac{2}{3} \frac{\hbar^2 (3 \pi^2 N q)^{5/3}}{10 \pi^2 m} V^{-5/3} \dd V =
+-\frac{2}{3} E_{\rm tot} \frac{\dd V}{V}
+$$
+- shows up as work done on outside ($\dd W = P \dd V$) by quantum pressure $P$
+$$
+P =
+\frac{2}{3} \frac{E_{\rm tot}}{V} =
+\frac{2}{3} \frac{\hbar^2 k_F^5}{10 \pi^2 m} =
+\frac{(3 \pi^2)^{2/3} \hbar^2}{5 m} \rho^{5/3}
+$$
+- stabilizing internal pressure, independent of $e$-$e$ & thermal repulsion
+
+
+# Band Structure
+
+## Introduction
+
+- we improve on the free electron model by including forces exerted by
+  nucleii
+    - regularly spaced
+    - positively charged
+    - stationary
+
+
+## Dirac Comb
+
+- model the potential by a 1D Dirac comb
+    - evenly spaced delta function spikes
+- periodic in $x$ at intervals of $a$
+$$V(x + a) = V(x)$$
+
+
+## Bloch's Theorem
+
+the solutions to the Schrödinger equation
+$$-\frac{\hbar^2}{2 m} \dv[2]{\psi}{x} + V(x) \psi = E \psi$$
+can be taken to satisfy the condition
+$$\psi(x + a) = e^{\imath K a} \psi(x)$$
+for some constant $K$ (independent of $x$ but not necessarily $E$)
+
+
+## Displacement Operator
+
+$$D f(x) = f(x + a)$$
+
+- for a periodic potential, $D$ commutes with the Hamiltonian
+$$\comm{D}{H} = 0$$
+- free to choose eigenfunctions of $H$ that are eigenfunctions of $D$
+$$D \psi = \lambda \psi \implies \psi(x + a) = \lambda \psi(x)$$
+
+
+
+
+## Thank You

@@ -1,0 +1,287 @@
+---
+author: Daniel Wysocki and Nicholas Jira
+title: Atoms
+date: April 23, 2015
+output:
+  beamer_presentation:
+    theme: CambridgeUS
+    colortheme: dolphin
+    fonttheme: serif
+    includes:
+      in_header: [header.tex]
+---
+
+# Introduction
+
+## Neutral Atom
+
+- atomic number $Z$
+- nucleus has charge $Z e$
+- surrounded by $Z$ electrons
+    - mass $m$
+    - charge $-e$
+
+
+## Hamiltonian
+
+$$H = H_{\rm nucleus} + H_{\rm electrons}$$
+
+- $H_{\rm nucleus}$ is the total kinetic and potential energy resulting from
+  the nucleus' electric field on the electrons
+- $H_{\rm electrons}$ is the potential energy resulting from the electrons'
+  mutual repulsion
+
+
+## Hamiltonian
+
+\begin{align*}
+H_{\rm nucleus} &=
+\sum_{j=1}^Z \qty{
+  -\frac{\hbar^2}{2 m} \laplacian_j -
+  \qty( \frac{1}{4 \pi \varepsilon_0} ) \frac{Z e^2}{r_j}
+}
+\\
+H_{\rm electrons} &=
+\frac{1}{2}
+\qty( \frac{1}{4 \pi \varepsilon_0} )
+\sum_{j \neq k}^Z \frac{e^2}{\norm{ \vb{r}_j - \vb{r}_k }}
+\end{align*}
+
+
+## Hamiltonian
+
+$$
+H =
+\sum_{j=1}^Z \qty{
+  -\frac{\hbar^2}{2 m} \laplacian_j -
+  \qty( \frac{1}{4 \pi \varepsilon_0} ) \frac{Z e^2}{r_j}
+}
++
+\frac{1}{2}
+\qty( \frac{1}{4 \pi \varepsilon_0} )
+\sum_{j \neq k}^Z \frac{e^2}{\norm{ \vb{r}_j - \vb{r}_k }}
+$$
+$$H \psi = E \psi$$
+$$\psi = \psi(\vb{r}_1, \vb{r}_2, \ldots, \vb{r}_Z)$$
+
+
+## Acceptable Solutions to Schrödinger Equation
+
+- electrons are identical fermions, so not all solutions are acceptable
+    - no two electrons can occupy the same state
+
+$$
+\psi(\vb{r}_1, \vb{r}_2, \ldots, \vb{r}_Z)
+\chi(\vb{s}_1, \vb{s}_2, \ldots, \vb{s}_Z)
+$$
+
+- $\psi\cdot\chi$ must be anti-symmetric with respect to interchange of two
+  electrons
+
+
+## Solutions to Schrödinger Equation
+
+- only atom with a known analytic solution is $Z = 1$ (hydrogen)
+- approximations must be made for heavier elements
+
+
+
+# Helium
+
+## Hamiltonian
+
+\begin{align*}
+H &=
+\qty{
+  -\frac{\hbar^2}{2 m} \laplacian_1 -
+  \frac{1}{4 \pi \varepsilon_0} \frac{2 e^2}{r_1}
+} +
+\qty{
+  -\frac{\hbar^2}{2 m} \laplacian_2 -
+  \frac{1}{4 \pi \varepsilon_0} \frac{2 e^2}{r_2}
+}
+\\
+&+
+\frac{1}{4 \pi \varepsilon_0}
+\frac{e^2}{\norm{\vb{r}_1 - \vb{r}_2}}
+\end{align*}
+
+- two hydrogenic Hamiltonians with charge $2 e$
+- electron repulsion term makes things difficult
+
+
+## Ignoring Repulsion
+
+- if we ignore the difficult term, we find
+
+\begin{gather*}
+\psi(\vb{r}_1, \vb{r}_2) =
+\psi_{n  \ell  m }(\vb{r}_1)
+\psi_{n' \ell' m'}(\vb{r}_2)
+\\
+E = 4 (E_n + E_{n'})
+\\
+\psi_0(\vb{r}_1, \vb{r}_2) =
+\frac{8}{\pi a^3} \exp(-2 (r_1 + r_2) / a)
+\\
+E_0 = 8 (\SI{-13.6}{\electronvolt}) = \SI{-109}{\electronvolt}
+\end{gather*}
+
+
+## Helium Ground State
+
+- neglecting electron repulsion we found $E_0 = \SI{-109}{\electronvolt}$
+- experimentation reveals $E_0 = \SI{-78.975}{\electronvolt}$
+    - evidently electron repulsion is responsible for an additional
+      $\SI{30}{\electronvolt}$ of energy
+
+
+## Helium Excited States
+
+- consist of one electron in hydrogenic ground state, and the other in an
+  excited state
+$$\psi_{n \ell m} \psi_{1 0 0}$$
+- if both electrons are in excited states
+    - one immediately drops to the ground state
+    - releases enough energy to knock the other out of the atom
+    - produces helium ion (He$^+$)
+
+
+## Helium Excited States
+
+- both symmetric and anti-symmetric spin configurations exist
+- anti-symmetric spin configurations (singlet)
+    - parahelium
+- symmetric spin configuration (triplet)
+    - orthohelium
+- electrons closer together in symmetric configuration
+    - parahelium states have higher energy than orthohelium counterparts
+
+
+
+# The Periodic Table
+
+## Orbitals
+
+- $n^2$ unique hydrogenic position wave functions with energy $E_n$
+    - $2n^2$ wave functions when spin ($\uparrow\downarrow$) is considered
+- if rows of periodic table corresponded to # shells, they would have lengths
+  2, 8, 18, 32, 50, ...
+    - instead they have lengths 2, 8, 8, 18, 18, ...
+
+
+## Orbitals
+
+- Hydrogen: (1, 0, 0) has $\uparrow$
+\pause
+- Helium: (1, 0, 0) has $\uparrow\downarrow$
+\pause
+- Lithium: (1, 0, 0) full, (2, $\ell$, 0) has $\uparrow$
+
+
+## Lithium Orbitals
+
+$$(2, \ell, 0)$$
+
+- for $n = 2$, $\ell$ can be 0 or 1
+- in absence of electron-electron interactions, both have same energy
+- in presence of of $e-e$ interactions, higher angular momentum ($\ell$)
+  tends to send particle outwards
+    - lower $\ell$ is thus favored
+
+$$(2, 0, 0)$$
+
+
+## Orbitals
+
+- Hydrogen: (1, 0, 0) has $\uparrow$
+- Helium: (1, 0, 0) has $\uparrow\downarrow$
+- Lithium: (1, 0, 0) full, (2, 0, 0) has $\uparrow$
+\pause
+- Beryllium: (1, 0, 0) full, (2, 0, 0) has $\uparrow\downarrow$
+\pause
+- Boron: (1, 0, 0) full, (2, 0, 0) full, (2, 1, 0) has $\uparrow$
+\pause
+- $\vdots$
+\pause
+- Neon: (1, 0, 0) full, \ldots (2, 1, 1) full, (2, 1, 0) full, (2, 1, -1) full
+\pause
+- Sodium: (3, 0, 0) has $\uparrow$
+\pause
+- Magnesium: (3, 0, 0) has $\uparrow\downarrow$
+
+
+## Orbitals
+
+- for the next six (aluminum through argon), $\ell = 1$
+    - two for each value of $m$ ($-1$, 0, $+1$)
+- the next 10 *would* fill (3, 2, $m$), but electron-electron interactions
+  change that
+    - Potassium and Calcium fill (4, 0, 0)
+    - Scandium through Zinc fill (3, 2, $m$)
+- another jump occurs after Krypton, which fills (4, 1, $m$)
+    - Rubidium starts to fill (5, 0, 0)
+
+
+## Nomenclature
+
+- $\ell = 0$ is called $s$
+    - "sharp"
+\pause
+- $\ell = 1$ is called $p$
+    - "principal"
+\pause
+- $\ell = 2$ is called $d$
+    - "diffuse"
+\pause
+- $\ell = 3$ is called $f$
+    - "fundamental"
+\pause
+- the rest come alphabetically after $f$, skipping over $j$
+    - $h$, $i$, $k$, $l$, ...
+
+
+## Nomenclature
+
+- consider the ground state of Carbon
+$$(1s)^2 (2s)^2 (2p)^2$$
+- there are two electrons in (1, 0, 0)
+- there are two electrons in (2, 0, 0)
+- there are two electrons in some combination of
+$$(2, 1, 1), (2, 1, 0), (2, 1, -1)$$
+
+
+## Total Quanta
+
+- in the Carbon example, there are two electrons with $\ell = 1$
+    - total angular momentum $L$ could be 2, 1, or 0
+\pause
+- four electrons in the $(1s)$ and $(2s)$ states locked in singlet state with
+  total spin $S = 0$
+- remaining two electrons in $(2p)$ state could be in singlet or triplet state
+    - total spin quantum number $S$ could be 1 or 0
+\pause
+- grand total $J = L + S$ could be 3, 2, 1, or 0
+
+
+## Hund's Rules
+
+- methods for figuring out the totals
+- result written as
+$$\prescript{2S+1}{}{L_J}$$
+- ground state of Carbon is $\prescript{3}{}{P_0}$
+
+
+## Hund's Rules
+
+1. Consistent with the Pauli principle, the state with the highest total spin
+   ($S$) will have the lowest energy.
+2. For a given spin, the state with the highest total orbital angular momentum
+   ($L$), consistent with overall anti-symmetrization, will have the lowest
+   energy.
+3. If a subshell ($n$, $\ell$) is no more than half filled, then the lowest
+   energy level has $J = \abs{L - S}$; if it is more than half filled, then
+   $J = L + S$ has the lowest energy.
+
+
+## Thank You
