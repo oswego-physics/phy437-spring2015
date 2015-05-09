@@ -4,12 +4,24 @@ layout: blank
 
 Presentations from Advanced Quantum Mechanics (PHY437), Spring 2015.
 
+Instructor: Dr Shashi Kanbur
+
+Students:
+
+- Daniel Wysocki
+- Dylan McIntyre
+- Kenny Roffo
+- Nicholas Jira
+
+
+
 **January 29**
 
 - Thornton and Rex, Chapter 5 -- Daniel Wysocki and Kenny Roffo
     - [download]({{site.baseurl}}/assets/presentations/threx_ch5/threx_ch5.pdf)
 - Thornton and Rex, Chapter 6 -- Dylan McIntyre and Nicholas Jira
     - [download]({{site.baseurl}}/assets/presentations/Chapter_6_presentation.pptx)
+
 
 
 **February 12**
@@ -20,6 +32,7 @@ Presentations from Advanced Quantum Mechanics (PHY437), Spring 2015.
     - [download]({{site.baseurl}}/assets/presentations/griffiths_ch2/griffiths_ch2.pdf)
 
 
+
 **February 19**
 
 - Griffiths, Chapter 3.1 and 3.2 -- Daniel Wysocki and Kenny Roffo
@@ -28,12 +41,14 @@ Presentations from Advanced Quantum Mechanics (PHY437), Spring 2015.
     - [download]({{site.baseurl}}/assets/presentations/aqm_presentation_33_34.pptx)
 
 
+
 **February 26**
 
 - Griffiths, Chapter 2.3, The Harmonic Oscillator -- Daniel Wysocki and Kenny Roffo
     - [download]({{site.baseurl}}/assets/presentations/griffiths_qho/griffiths_qho.pdf)
 - Griffiths, Chapter 2.5, The Delta-Function Potential -- Dylan McIntyre and Nicholas Jira
     - [download]({{site.baseurl}}/assets/presentations/aqm_pre_deltafunction.pptx)
+
 
 
 **March 5**
@@ -53,13 +68,13 @@ Presentations from Advanced Quantum Mechanics (PHY437), Spring 2015.
     - [download]({{site.baseurl}}/assets/presentations/griffiths_hatom/griffiths_hatom.pdf)
 
 
+
 **April 2**
 
 - Griffiths, Chapter 4.3, Angular Momentum -- Daniel Wysocki and Nicholas Jira
     - [download]({{site.baseurl}}/assets/presentations/griffiths_angular_momentum/griffiths_angular_momentum.pdf)
 - Griffiths, Chapter 4.4, Spin -- Dylan McIntyre and Nicholas Jira
     - **!!missing!!**
-
 
 
 
@@ -71,7 +86,6 @@ Presentations from Advanced Quantum Mechanics (PHY437), Spring 2015.
 
 - Griffiths, Chapter 5.2, Atoms -- Daniel Wysocki and Nicholas Jira
     - [download]({{site.baseurl}}/assets/presentations/griffiths_atoms/griffiths_atoms.pdf)
-
 
 
 
